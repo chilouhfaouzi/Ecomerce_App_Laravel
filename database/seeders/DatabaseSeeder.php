@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             [
                 CategoriesTableSeeder::class,
                 ProductSeeder::class,
-                UserSeeder::class
+                UserSeeder::class,
+                SettingSeeder::class
 
             ]
         );
