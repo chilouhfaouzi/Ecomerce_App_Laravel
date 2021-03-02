@@ -23,10 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('tel')->unique();
             $table->smallInteger('is_admin')->default(0);
             $table->smallInteger('is_suspended')->default(0);
-            $table->text("lines");
-            $table->integer("zip_code")->unique();
-            $table->string('city');
-            $table->string('country');
+            $table->text("lines")->nullable();
+            $table->integer("zip_code")->unique()->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

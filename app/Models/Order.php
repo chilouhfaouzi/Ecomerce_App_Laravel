@@ -10,6 +10,11 @@ class Order extends Model
     use HasFactory;
     public function user()
     {
-        return $this->belogsto(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function Product()
+    {
+        return $this->hasMany(Product::class);
     }
 }
