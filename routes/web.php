@@ -22,5 +22,9 @@ Route::get('/about', function () {
 Route::get('/404', function () {
     return view('404');
 })->name('404');
-
-Auth::routes();
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');

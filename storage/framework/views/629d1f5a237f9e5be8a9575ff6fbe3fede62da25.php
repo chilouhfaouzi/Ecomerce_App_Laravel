@@ -1086,7 +1086,7 @@
 
                                                         <a
                                                             class="mini-link btn--e-transparent-secondary-b-2"
-                                                            href="cart.html"
+                                                            href="<?php echo e(Route('cart')); ?>"
                                                             >VIEW CART</a
                                                         >
                                                     </div>
@@ -1763,7 +1763,7 @@
 
                                             <a
                                                 class="s-option__link btn--e-white-brand-shadow"
-                                                href="cart.html"
+                                                href="<?php echo e(Route('cart')); ?>"
                                                 >VIEW CART</a
                                             >
 
@@ -1807,6 +1807,10 @@
   
      	<!-- Popper JS -->
     	<script src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
+        <?php $__env->startSection('special_script'); ?>
+ 
+        <?php echo $__env->yieldSection(); ?>
+  
      	<!-- Bootstrap JS -->
     	<script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
         <!--====== jQuery Shopnav plugin ======-->
