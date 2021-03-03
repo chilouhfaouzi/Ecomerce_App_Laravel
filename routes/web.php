@@ -28,3 +28,12 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('cart');
 })->name('cart');
+Route::get('/wishlist', function () {
+    return view('wishlist');
+})->name('wish');
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+Route::get('/sign', function () {
+    return view('sign');
+})->name('sign');

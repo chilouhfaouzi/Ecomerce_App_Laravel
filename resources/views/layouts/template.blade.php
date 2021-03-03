@@ -677,7 +677,7 @@
                                                     <a href="cart.html">Cart</a>
                                                 </li>
                                                 <li>
-                                                    <a href="wishlist.html"
+                                                    <a href="{{Route('wish')}}"
                                                         >Wishlist</a
                                                     >
                                                 </li>
@@ -789,7 +789,7 @@
                                             ></a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html"
+                                            <a href="{{Route('wish')}}"
                                                 ><i class="far fa-heart"></i
                                             ></a>
                                         </li>
@@ -1108,8 +1108,33 @@
                 <!--====== End - Nav 2 ======-->
             </header>
             <!--====== End - Main Header ======-->
+            @section('brodcump')
+         <!--====== Section 1 ======-->
+               <div class="u-s-p-y-60">
 
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+
+                                <a href="{{ Route('home')}}">Home</a></li>
+                            <li class="is-marked">
+
+                                <a href="cart.html"> @yield('title') </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
+    <!--====== End - Section 1 ======-->
+            @show
             <!--====== App Content ======-->
+
+         
             
 			<div class="app-content">
 				@yield('content')

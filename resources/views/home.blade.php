@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="container">
+    @section('brodcump')
+    @endsection
+
+
         <!--====== Section 1 ======-->
 
         <!--====== Electronic Category ======-->

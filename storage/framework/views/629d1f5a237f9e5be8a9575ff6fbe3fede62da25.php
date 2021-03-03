@@ -677,7 +677,7 @@
                                                     <a href="cart.html">Cart</a>
                                                 </li>
                                                 <li>
-                                                    <a href="wishlist.html"
+                                                    <a href="<?php echo e(Route('wish')); ?>"
                                                         >Wishlist</a
                                                     >
                                                 </li>
@@ -789,7 +789,7 @@
                                             ></a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html"
+                                            <a href="<?php echo e(Route('wish')); ?>"
                                                 ><i class="far fa-heart"></i
                                             ></a>
                                         </li>
@@ -1108,8 +1108,33 @@
                 <!--====== End - Nav 2 ======-->
             </header>
             <!--====== End - Main Header ======-->
+            <?php $__env->startSection('brodcump'); ?>
+         <!--====== Section 1 ======-->
+               <div class="u-s-p-y-60">
 
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+
+                                <a href="<?php echo e(Route('home')); ?>">Home</a></li>
+                            <li class="is-marked">
+
+                                <a href="cart.html"> <?php echo $__env->yieldContent('title'); ?> </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
+    <!--====== End - Section 1 ======-->
+            <?php echo $__env->yieldSection(); ?>
             <!--====== App Content ======-->
+
+         
             
 			<div class="app-content">
 				<?php echo $__env->yieldContent('content'); ?>
