@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,10 +23,11 @@ class ProductFactory extends Factory
     public function definition()
     {
         $my_faker = $this->faker;
+        $catsid =  Category::where('id', '>', 0)->pluck('id');
         return [
             'title' =>  $my_faker->sentence(4),
             'description' =>  $my_faker->text(),
-            'category_id' =>  $my_faker->randomElement($array = array('5', '6', '7', '8')),
+            'category_id' =>  $my_faker->randomElement($array =  $catsid),
             'image' => $my_faker->imageUrl($width = 640, $height = 480),
             'price' => $my_faker->randomNumber($nbDigits = 2, $strict = false),
             'solds' => $my_faker->numberBetween($min = 0, $max = 15),

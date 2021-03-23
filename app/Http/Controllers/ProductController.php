@@ -12,6 +12,7 @@ class ProductController extends Controller
     {
         $products = Product::inRandomOrder()->get();
         $cats = Category::get();
+
         //  dd($products);
         return view("products")->with('products', $products)->with('cats', $cats);
     }

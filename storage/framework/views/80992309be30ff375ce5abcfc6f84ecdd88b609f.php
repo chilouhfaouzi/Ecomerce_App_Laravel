@@ -1391,7 +1391,7 @@
                                 <h1
                                     class="section__heading u-c-secondary u-s-m-b-12"
                                 >
-                                    NEW ARRIVALS
+                                    Last Added
                                 </h1>
 
                                 <span class="section__span u-c-silver"

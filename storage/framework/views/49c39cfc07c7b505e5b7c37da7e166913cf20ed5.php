@@ -28,16 +28,20 @@
             <div class="section__content">
                 <div class="container">
                     <div class="row">
+                        <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div
                             class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
                         >
+                       
+                            
+                      
                             <div class="category-o">
                                 <div
                                     class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
                                 >
                                     <img
                                         class="aspect__img category-o__img"
-                                        src="images/product/electronic/product23.jpg"
+                                        src="<?php echo e($cat->image); ?>"
                                         alt=""
                                     />
                                 </div>
@@ -45,77 +49,12 @@
                                     <a
                                         class="category-o__shop-now btn--e-white-brand"
                                         href="shop-side-version-2.html"
-                                        >Laptops</a
+                                        ><?php echo e($cat->name); ?></a
                                     >
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div class="category-o">
-                                <div
-                                    class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
-                                >
-                                    <img
-                                        class="aspect__img category-o__img"
-                                        src="images/product/electronic/product35.jpg"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="category-o__info">
-                                    <a
-                                        class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >Smartphones</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div class="category-o">
-                                <div
-                                    class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
-                                >
-                                    <img
-                                        class="aspect__img category-o__img"
-                                        src="images/product/electronic/product3.jpg"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="category-o__info">
-                                    <a
-                                        class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >Headphones</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div class="category-o">
-                                <div
-                                    class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
-                                >
-                                    <img
-                                        class="aspect__img category-o__img"
-                                        src="images/product/electronic/product32.jpg"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="category-o__info">
-                                    <a
-                                        class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >TV's</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
