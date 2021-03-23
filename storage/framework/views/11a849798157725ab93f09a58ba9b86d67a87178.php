@@ -2,7 +2,6 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container">
-    <?php $__env->startSection('title', 'Sign Up'); ?>
 
         <!--====== Section 1 ======-->
         <?php $__env->startSection('title', 'Sign Up'); ?>

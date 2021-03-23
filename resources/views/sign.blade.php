@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    @section('title', 'Sign Up')
 
         <!--====== Section 1 ======-->
         @section('title', 'Sign Up')

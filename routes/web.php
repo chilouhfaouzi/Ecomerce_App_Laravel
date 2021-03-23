@@ -37,3 +37,18 @@ Route::get('/login', function () {
 Route::get('/sign', function () {
     return view('sign');
 })->name('sign');
+Route::get('/myaccount', function () {
+    return view('myaccount');
+})->name('myaccount');
+Route::get('/items_cats', function () {
+    return view('items_cats');
+})->name('items_cats');
+Route::get('/product', function () {
+    return view('product');
+})->name('product');
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
