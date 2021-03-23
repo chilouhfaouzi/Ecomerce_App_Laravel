@@ -26,5 +26,9 @@ class CategoriesTableSeeder extends Seeder
             'name' => 'Games',
             'number_products' => 2
         ]);
+        Category::create([
+            'name' => 'Clothes',
+            'number_products' => 3
+        ]);
     }
 }
