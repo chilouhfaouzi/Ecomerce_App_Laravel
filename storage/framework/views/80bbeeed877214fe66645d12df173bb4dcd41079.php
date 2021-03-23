@@ -23,7 +23,7 @@
                                         <ul class="dash__f-list">
                                             <li>
 
-                                                <a class="dash-active" href="dashboard.html">Manage My Account</a></li>
+                                                <a class="dash-active">Manage My Account</a></li>
                                             <li>
 
                                                 <a href="dash-my-profile.html">My Profile</a></li>
@@ -31,7 +31,7 @@
                                        
                                             <li>
 
-                                                <a href="dash-my-order.html">My Orders</a></li>
+                                                <a href="<?php echo e(Route('orders')); ?>">My Orders</a></li>
                                             <li>
 
                                                 <a href="dash-payment-option.html">My Payment Options</a></li>

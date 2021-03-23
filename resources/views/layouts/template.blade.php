@@ -13,7 +13,7 @@
         <meta name="author" content="" />
         <link href="images/favicon.png" rel="shortcut icon" />
         <title>
-            Ludus - Electronics, Apparel, Computers, Books, DVDs & more
+            Bouki Store
         </title>
 
         <!--====== Google Font ======-->
@@ -51,7 +51,7 @@
                         <div class="primary-nav">
                             <!--====== Main Logo ======-->
 
-                            <a class="main-logo" href="index.html">
+                            <a class="main-logo" href="{{ Route('home')}}">
                                 <img src="images/logo/logo-1.png" alt=""
                             /></a>
                             <!--====== End - Main Logo ======-->
@@ -224,14 +224,14 @@
                                                 <li
                                                     class="has-dropdown has-dropdown--ul-left-100"
                                                 >
-                                                    <a  href="index.html"
+                                                    <a  href="{{Route('myaccount')}}"
                                                         >Account</a>
                                                  
                                                 </li>
                                               
 
                                                 <li>
-                                                    <a href="cart.html">Cart</a>
+                                                    <a href="{{Route('cart')}}">Cart</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{Route('wish')}}"
@@ -239,20 +239,20 @@
                                                     >
                                                 </li>
                                                 <li>
-                                                    <a href="checkout.html"
+                                                    <a href="{{Route('checkout')}}"
                                                         >Checkout</a
                                                     >
                                                 </li>
                                                 <li>
-                                                    <a href="faq.html">FAQ</a>
+                                                    <a href="{{Route('faq')}}">FAQ</a>
                                                 </li>
                                                 <li>
-                                                    <a href="about.html"
+                                                    <a href="{{Route('about')}}"
                                                         >About us</a
                                                     >
                                                 </li>
                                                 <li>
-                                                    <a href="contact.html"
+                                                    <a href="{{Route('contact')}}"
                                                         >Contact</a
                                                     >
                                                 </li>                                          
@@ -288,7 +288,7 @@
                                         </li>                                    
                                         
                                         <li>
-                                            <a href="shop-side-version-2.html"
+                                            <a href="{{Route('items_cats')}}"
                                                 >GIFT CARDS</a
                                             >
                                         </li>
@@ -359,7 +359,7 @@
                                                             >
                                                                 <a
                                                                     class="mini-product__link"
-                                                                    href="product-detail.html"
+                                                                    href="{{Route('product')}}"
                                                                 >
                                                                     <img
                                                                         class="u-img-fluid"
@@ -374,7 +374,7 @@
                                                                     class="mini-product__category"
                                                                 >
                                                                     <a
-                                                                        href="shop-side-version-2.html"
+                                                                        href="{{Route('items_cats')}}"
                                                                         >Electronics</a
                                                                     ></span
                                                                 >
@@ -383,7 +383,7 @@
                                                                     class="mini-product__name"
                                                                 >
                                                                     <a
-                                                                        href="product-detail.html"
+                                                                        href="{{Route('product')}}"
                                                                         >Yellow
                                                                         Wireless
                                                                         Headphone</a
@@ -420,7 +420,7 @@
                                                             >
                                                                 <a
                                                                     class="mini-product__link"
-                                                                    href="product-detail.html"
+                                                                    href="{{Route('product')}}"
                                                                 >
                                                                     <img
                                                                         class="u-img-fluid"
@@ -435,7 +435,7 @@
                                                                     class="mini-product__category"
                                                                 >
                                                                     <a
-                                                                        href="shop-side-version-2.html"
+                                                                        href="{{Route('items_cats')}}"
                                                                         >Electronics</a
                                                                     ></span
                                                                 >
@@ -444,7 +444,7 @@
                                                                     class="mini-product__name"
                                                                 >
                                                                     <a
-                                                                        href="product-detail.html"
+                                                                        href="{{Route('product')}}"
                                                                         >Nikon
                                                                         DSLR
                                                                         Camera
@@ -482,7 +482,7 @@
                                                             >
                                                                 <a
                                                                     class="mini-product__link"
-                                                                    href="product-detail.html"
+                                                                    href="{{Route('product')}}"
                                                                 >
                                                                     <img
                                                                         class="u-img-fluid"
@@ -497,7 +497,7 @@
                                                                     class="mini-product__category"
                                                                 >
                                                                     <a
-                                                                        href="shop-side-version-2.html"
+                                                                        href="{{Route('items_cats')}}"
                                                                         >Women
                                                                         Clothing</a
                                                                     ></span
@@ -507,7 +507,7 @@
                                                                     class="mini-product__name"
                                                                 >
                                                                     <a
-                                                                        href="product-detail.html"
+                                                                        href="{{Route('product')}}"
                                                                         >New
                                                                         Dress D
                                                                         Nice
@@ -545,7 +545,7 @@
                                                             >
                                                                 <a
                                                                     class="mini-product__link"
-                                                                    href="product-detail.html"
+                                                                    href="{{Route('product')}}"
                                                                 >
                                                                     <img
                                                                         class="u-img-fluid"
@@ -560,7 +560,7 @@
                                                                     class="mini-product__category"
                                                                 >
                                                                     <a
-                                                                        href="shop-side-version-2.html"
+                                                                        href="{{Route('items_cats')}}"
                                                                         >Men
                                                                         Clothing</a
                                                                     ></span
@@ -570,7 +570,7 @@
                                                                     class="mini-product__name"
                                                                 >
                                                                     <a
-                                                                        href="product-detail.html"
+                                                                        href="{{Route('product')}}"
                                                                         >New
                                                                         Fashion
                                                                         D Nice
@@ -614,7 +614,7 @@
                                                     <div class="mini-action">
                                                         <a
                                                             class="mini-link btn--e-brand-b-2"
-                                                            href="checkout.html"
+                                                            href="{{Route('checkout')}}"
                                                             >PROCEED TO
                                                             CHECKOUT</a
                                                         >
@@ -658,7 +658,7 @@
                                 <a href="{{ Route('home')}}">Home</a></li>
                             <li class="is-marked">
 
-                                <a href="cart.html"> @yield('title') </a></li>
+                                <a > @yield('title') </a></li>
                         </ul>
                     </div>
                 </div>
@@ -770,18 +770,18 @@
                                             >
                                                 <ul>
                                                     <li>
-                                                        <a href="cart.html"
+                                                        <a href="{{Route('cart')}}"
                                                             >Cart</a
                                                         >
                                                     </li>
                                                     <li>
-                                                        <a href="dashboard.html"
+                                                        <a href="{{Route('myaccount')}}"
                                                             >Account</a
                                                         >
                                                     </li>
                                                     <li>
                                                         <a
-                                                            href="shop-side-version-2.html"
+                                                            href="{{Route('items_cats')}}"
                                                             >Manufacturer</a
                                                         >
                                                     </li>
@@ -793,7 +793,7 @@
                                                     </li>
                                                     <li>
                                                         <a
-                                                            href="shop-side-version-2.html"
+                                                            href="{{Route('items_cats')}}"
                                                             >Shop</a
                                                         >
                                                     </li>
@@ -822,21 +822,16 @@
                                                         <a href="contact.html"
                                                             >Contact Us</a
                                                         >
-                                                    </li>
-                                                    <li>
-                                                        <a href="index.html"
-                                                            >Sitemap</a
-                                                        >
-                                                    </li>
+                                                    </li>                                             
                                                     <li>
                                                         <a
-                                                            href="dash-my-order.html"
+                                                            href="{{Route('orders')}}"
                                                             >Delivery</a
                                                         >
                                                     </li>
                                                     <li>
                                                         <a
-                                                            href="shop-side-version-2.html"
+                                                            href="{{Route('items_cats')}}"
                                                             >Store</a
                                                         >
                                                     </li>
@@ -916,19 +911,19 @@
                                             </li>
                                             <li class="has-separator">
                                                 <a
-                                                    href="shop-side-version-2.html"
+                                                    href="{{Route('items_cats')}}"
                                                     >Electronics</a
                                                 >
                                             </li>
                                             <li class="has-separator">
                                                 <a
-                                                    href="shop-side-version-2.html"
+                                                    href="{{Route('items_cats')}}"
                                                     >DSLR Cameras</a
                                                 >
                                             </li>
                                             <li class="is-marked">
                                                 <a
-                                                    href="shop-side-version-2.html"
+                                                    href="{{Route('items_cats')}}"
                                                     >Nikon Cameras</a
                                                 >
                                             </li>
@@ -1060,7 +1055,7 @@
                                                     class="pd-detail__review u-s-m-l-4"
                                                 >
                                                     <a
-                                                        href="product-detail.html"
+                                                        href="{{Route('product')}}"
                                                         >23 Reviews</a
                                                     ></span
                                                 >

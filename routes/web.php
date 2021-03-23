@@ -52,3 +52,9 @@ Route::get('/faq', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
+Route::get('/orders', function () {
+    return view('orders');
+})->name('orders');
+Route::get('/profile-edit', function () {
+    return view('edit_account');
+})->name('edit_account');
