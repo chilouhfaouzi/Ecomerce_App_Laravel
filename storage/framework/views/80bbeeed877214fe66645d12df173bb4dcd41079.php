@@ -26,7 +26,7 @@
                                                 <a class="dash-active">Manage My Account</a></li>
                                             <li>
 
-                                                <a href="dash-my-profile.html">My Profile</a></li>
+                                                <a href="<?php echo e(Route('edit_account')); ?>">My Profile</a></li>
                                            
                                        
                                             <li>

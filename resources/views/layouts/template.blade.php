@@ -32,6 +32,7 @@
 
         <!--====== App ======-->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/newstyle.css') }}" />
     </head>
     <body class="config">
         <div class="preloader is-active">
@@ -267,21 +268,22 @@
                                             ></a>
 
                                             <!--====== Dropdown ======-->
+                                            
 
                                             <span class="js-menu-toggle"></span>
                                             <ul style="width: 170px">
                                                
-                                                    
-                                                <li>
-                                                    <a href="{{ Route('items_cats')}}"
-                                                        >Cat1</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="{{ Route('items_cats')}}"
-                                                        >Cat2</a
-                                                    >
-                                                </li>
+                                                    @foreach ( App\Models\Category::get() as $cat)
+                                                    <li>
+                                                        <a  href="{{Route('items_cats',
+                                                        ['id_cat' =>$cat->id
+                                                        ])}}"
+                                                            >{{$cat->name}}</a
+                                                        >
+                                                    </li>
+                                                    @endforeach
+                                               
+                                               
                                              
                                             </ul>
                                             <!--====== End - Dropdown ======-->
@@ -329,7 +331,9 @@
                                             ></a>
                                         </li>
                                         <li class="has-dropdown">
-                                            <a class="mini-cart-shop-link"
+                                            <a
+                                            href="{{Route('cart')}}"
+                                            class="mini-cart-shop-link"
                                                 ><i
                                                     class="fas fa-shopping-bag"
                                                 ></i>
@@ -339,296 +343,6 @@
                                                 ></a
                                             >
 
-                                            <!--====== Dropdown ======-->
-
-                                            <span class="js-menu-toggle"></span>
-                                            <div class="mini-cart">
-                                                <!--====== Mini Product Container ======-->
-                                                <div
-                                                    class="mini-product-container gl-scroll u-s-m-b-15"
-                                                >
-                                                    <!--====== Card for mini cart ======-->
-                                                    <div
-                                                        class="card-mini-product"
-                                                    >
-                                                        <div
-                                                            class="mini-product"
-                                                        >
-                                                            <div
-                                                                class="mini-product__image-wrapper"
-                                                            >
-                                                                <a
-                                                                    class="mini-product__link"
-                                                                    href="{{Route('product')}}"
-                                                                >
-                                                                    <img
-                                                                        class="u-img-fluid"
-                                                                        src="images/product/electronic/product3.jpg"
-                                                                        alt=""
-                                                                /></a>
-                                                            </div>
-                                                            <div
-                                                                class="mini-product__info-wrapper"
-                                                            >
-                                                                <span
-                                                                    class="mini-product__category"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('items_cats')}}"
-                                                                        >Electronics</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__name"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('product')}}"
-                                                                        >Yellow
-                                                                        Wireless
-                                                                        Headphone</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__quantity"
-                                                                    >1 x</span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__price"
-                                                                    >$8</span
-                                                                >
-                                                            </div>
-                                                        </div>
-
-                                                        <a
-                                                            class="mini-product__delete-link far fa-trash-alt"
-                                                        ></a>
-                                                    </div>
-                                                    <!--====== End - Card for mini cart ======-->
-
-                                                    <!--====== Card for mini cart ======-->
-                                                    <div
-                                                        class="card-mini-product"
-                                                    >
-                                                        <div
-                                                            class="mini-product"
-                                                        >
-                                                            <div
-                                                                class="mini-product__image-wrapper"
-                                                            >
-                                                                <a
-                                                                    class="mini-product__link"
-                                                                    href="{{Route('product')}}"
-                                                                >
-                                                                    <img
-                                                                        class="u-img-fluid"
-                                                                        src="images/product/electronic/product18.jpg"
-                                                                        alt=""
-                                                                /></a>
-                                                            </div>
-                                                            <div
-                                                                class="mini-product__info-wrapper"
-                                                            >
-                                                                <span
-                                                                    class="mini-product__category"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('items_cats')}}"
-                                                                        >Electronics</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__name"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('product')}}"
-                                                                        >Nikon
-                                                                        DSLR
-                                                                        Camera
-                                                                        4k</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__quantity"
-                                                                    >1 x</span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__price"
-                                                                    >$8</span
-                                                                >
-                                                            </div>
-                                                        </div>
-
-                                                        <a
-                                                            class="mini-product__delete-link far fa-trash-alt"
-                                                        ></a>
-                                                    </div>
-                                                    <!--====== End - Card for mini cart ======-->
-
-                                                    <!--====== Card for mini cart ======-->
-                                                    <div
-                                                        class="card-mini-product"
-                                                    >
-                                                        <div
-                                                            class="mini-product"
-                                                        >
-                                                            <div
-                                                                class="mini-product__image-wrapper"
-                                                            >
-                                                                <a
-                                                                    class="mini-product__link"
-                                                                    href="{{Route('product')}}"
-                                                                >
-                                                                    <img
-                                                                        class="u-img-fluid"
-                                                                        src="images/product/women/product8.jpg"
-                                                                        alt=""
-                                                                /></a>
-                                                            </div>
-                                                            <div
-                                                                class="mini-product__info-wrapper"
-                                                            >
-                                                                <span
-                                                                    class="mini-product__category"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('items_cats')}}"
-                                                                        >Women
-                                                                        Clothing</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__name"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('product')}}"
-                                                                        >New
-                                                                        Dress D
-                                                                        Nice
-                                                                        Elegant</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__quantity"
-                                                                    >1 x</span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__price"
-                                                                    >$8</span
-                                                                >
-                                                            </div>
-                                                        </div>
-
-                                                        <a
-                                                            class="mini-product__delete-link far fa-trash-alt"
-                                                        ></a>
-                                                    </div>
-                                                    <!--====== End - Card for mini cart ======-->
-
-                                                    <!--====== Card for mini cart ======-->
-                                                    <div
-                                                        class="card-mini-product"
-                                                    >
-                                                        <div
-                                                            class="mini-product"
-                                                        >
-                                                            <div
-                                                                class="mini-product__image-wrapper"
-                                                            >
-                                                                <a
-                                                                    class="mini-product__link"
-                                                                    href="{{Route('product')}}"
-                                                                >
-                                                                    <img
-                                                                        class="u-img-fluid"
-                                                                        src="images/product/men/product8.jpg"
-                                                                        alt=""
-                                                                /></a>
-                                                            </div>
-                                                            <div
-                                                                class="mini-product__info-wrapper"
-                                                            >
-                                                                <span
-                                                                    class="mini-product__category"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('items_cats')}}"
-                                                                        >Men
-                                                                        Clothing</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__name"
-                                                                >
-                                                                    <a
-                                                                        href="{{Route('product')}}"
-                                                                        >New
-                                                                        Fashion
-                                                                        D Nice
-                                                                        Elegant</a
-                                                                    ></span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__quantity"
-                                                                    >1 x</span
-                                                                >
-
-                                                                <span
-                                                                    class="mini-product__price"
-                                                                    >$8</span
-                                                                >
-                                                            </div>
-                                                        </div>
-
-                                                        <a
-                                                            class="mini-product__delete-link far fa-trash-alt"
-                                                        ></a>
-                                                    </div>
-                                                    <!--====== End - Card for mini cart ======-->
-                                                </div>
-                                                <!--====== End - Mini Product Container ======-->
-
-                                                <!--====== Mini Product Statistics ======-->
-                                                <div class="mini-product-stat">
-                                                    <div class="mini-total">
-                                                        <span
-                                                            class="subtotal-text"
-                                                            >SUBTOTAL</span
-                                                        >
-
-                                                        <span
-                                                            class="subtotal-value"
-                                                            >$16</span
-                                                        >
-                                                    </div>
-                                                    <div class="mini-action">
-                                                        <a
-                                                            class="mini-link btn--e-brand-b-2"
-                                                            href="{{Route('checkout')}}"
-                                                            >PROCEED TO
-                                                            CHECKOUT</a
-                                                        >
-
-                                                        <a
-                                                            class="mini-link btn--e-transparent-secondary-b-2"
-                                                            href="{{ Route('cart')}}"
-                                                            >VIEW CART</a
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <!--====== End - Mini Product Statistics ======-->
-                                            </div>
-                                            <!--====== End - Dropdown ======-->
                                         </li>
                                     </ul>
                                     <!--====== End - List ======-->

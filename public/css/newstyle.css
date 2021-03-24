@@ -1,0 +1,17 @@
+.product-o__name {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.product-o {
+    overflow: hidden;
+}
+
+.load-more > .btn {
+    padding: 22px 56px;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #fff !important;
+}

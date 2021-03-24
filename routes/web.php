@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-Route::get('/products', [ProductController::class, 'index']);
+
+Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/about', function () {
     return view('about');
 })->name('about');
@@ -42,9 +41,8 @@ Route::get('/sign', function () {
 Route::get('/myaccount', function () {
     return view('myaccount');
 })->name('myaccount');
-Route::get('/items_cats', function () {
-    return view('items_cats');
-})->name('items_cats');
+Route::get('/items_cats', [CategoryProductController::class, 'index'])->name('items_cats');
+Route::post('/items_cats', [CategoryProductController::class, 'index_post'])->name('items_cats_post');
 Route::get('/product', function () {
     return view('product');
 })->name('product');

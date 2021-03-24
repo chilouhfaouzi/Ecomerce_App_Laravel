@@ -28,94 +28,32 @@
             <div class="section__content">
                 <div class="container">
                     <div class="row">
+                        <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div
                             class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
+                        >                                                             
                             <div class="category-o">
                                 <div
                                     class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
                                 >
                                     <img
                                         class="aspect__img category-o__img"
-                                        src="images/product/electronic/product23.jpg"
+                                        src="<?php echo e($cat->image); ?>"
                                         alt=""
                                     />
                                 </div>
                                 <div class="category-o__info">
                                     <a
                                         class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >Laptops</a
+                                        href="<?php echo e(Route('items_cats',
+                                        ['id_cat' =>$cat->id
+                                        ])); ?>"
+                                        ><?php echo e($cat->name); ?></a
                                     >
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div class="category-o">
-                                <div
-                                    class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
-                                >
-                                    <img
-                                        class="aspect__img category-o__img"
-                                        src="images/product/electronic/product35.jpg"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="category-o__info">
-                                    <a
-                                        class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >Smartphones</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div class="category-o">
-                                <div
-                                    class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
-                                >
-                                    <img
-                                        class="aspect__img category-o__img"
-                                        src="images/product/electronic/product3.jpg"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="category-o__info">
-                                    <a
-                                        class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >Headphones</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div class="category-o">
-                                <div
-                                    class="aspect aspect--bg-grey aspect--square category-o__img-wrap"
-                                >
-                                    <img
-                                        class="aspect__img category-o__img"
-                                        src="images/product/electronic/product32.jpg"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="category-o__info">
-                                    <a
-                                        class="category-o__shop-now btn--e-white-brand"
-                                        href="shop-side-version-2.html"
-                                        >TV's</a
-                                    >
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
@@ -166,1211 +104,155 @@
                                         ALL
                                     </button>
                                 </div>
+                                <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="filter__category-wrapper">
                                     <button
                                         class="btn filter__btn filter__btn--style-1"
                                         type="button"
-                                        data-filter=".headphone"
+                                        data-filter=".<?php echo e($cat->name); ?>"
                                     >
-                                        HEADPHONES
+                                      
+                                         <?php echo e($cat->name); ?> 
+                                      
                                     </button>
                                 </div>
-                                <div class="filter__category-wrapper">
-                                    <button
-                                        class="btn filter__btn filter__btn--style-1"
-                                        type="button"
-                                        data-filter=".smartphone"
-                                    >
-                                        SMARTPHONES
-                                    </button>
-                                </div>
-                                <div class="filter__category-wrapper">
-                                    <button
-                                        class="btn filter__btn filter__btn--style-1"
-                                        type="button"
-                                        data-filter=".sportgadget"
-                                    >
-                                        SPORT GADGETS
-                                    </button>
-                                </div>
-                                <div class="filter__category-wrapper">
-                                    <button
-                                        class="btn filter__btn filter__btn--style-1"
-                                        type="button"
-                                        data-filter=".dslr"
-                                    >
-                                        DSLR
-                                    </button>
-                                </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                               
+                               
                             </div>
                             <div
                                 class="filter__grid-wrapper u-s-m-t-30"
                             >
-                                <div class="row">
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item headphone"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product2.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                            <div class="row">
 
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
+                         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                         <div
+                         class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item <?php echo e($product->Category->name); ?>">
+                         <div
+                             class="product-o product-o--hover-on product-o--radius"
+                         >
+                             <div
+                                 class="product-o__wrap"
+                             >
+                                 <a
+                                     class="aspect aspect--bg-grey aspect--square u-d-block"
+                                     href="<?php echo e(Route('product')); ?>"
+                                 >
+                                     <img
+                                         class="aspect__img"
+                                         src="<?php echo e($product->image); ?>"
+                                         alt=""
+                                 /></a>
+                                 <div
+                                     class="product-o__action-wrap"
+                                 >
+                                     <ul
+                                         class="product-o__action-list"
+                                     >
+                                         <li>
+                                             <a
+                                                 data-modal="modal"
+                                                 data-modal-id="#quick-look"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Quick View"
+                                                 ><i
+                                                     class="fas fa-search-plus"
+                                                 ></i
+                                             ></a>
+                                         </li>
+                                         <li>
+                                             <a
+                                                 data-modal="modal"
+                                                 data-modal-id="#add-to-cart"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Cart"
+                                                 ><i
+                                                     class="fas fa-plus-circle"
+                                                 ></i
+                                             ></a>
+                                         </li>
+                                         <li>
+                                             <a
+                                                 href="signin.html"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Wishlist"
+                                                 ><i
+                                                     class="fas fa-heart"
+                                                 ></i
+                                             ></a>
+                                         </li>
+                                        
+                                     </ul>
+                                 </div>
+                             </div>
 
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Red Wireless
-                                                    Headphone</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
+                             <span
+                                 class="product-o__category"
+                             >
+                                 <a
+                                     href="shop-side-version-2.html"
+                                     >Electronics</a
+                                 ></span
+                             >
 
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
+                             <span
+                                 class="product-o__name"
+                             >
+                                 <a
+                                     href="product-detail.html"
+                                     ><?php echo e($product->title); ?></a
+                                 ></span
+                             >
+                             <div
+                                 class="product-o__rating gl-rating-style"
+                             >
+                                 <i
+                                     class="fas fa-star"
+                                 ></i
+                                 ><i
+                                     class="fas fa-star"
+                                 ></i
+                                 ><i
+                                     class="fas fa-star"
+                                 ></i
+                                 ><i
+                                     class="fas fa-star"
+                                 ></i
+                                 ><i
+                                     class="fas fa-star-half-alt"
+                                 ></i>
 
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
+                             </div>
 
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item headphone"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product3.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                             <span
+                                 class="product-o__price"
+                                 >$<?php echo e($product->price); ?>.00
 
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Yellow Wireless
-                                                    Headphone</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i
-                                                ><i
-                                                    class="far fa-star"
-                                                ></i
-                                                ><i
-                                                    class="far fa-star"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item sportgadget"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product4.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Hover Skateboard
-                                                    Scooter</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item sportgadget"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product5.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Hover Red
-                                                    Skateboard
-                                                    Scooter</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item dslr"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product6.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Canon DSLR Camera
-                                                    4k</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item dslr"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product7.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Nikon DSLR Camera
-                                                    4k</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item smartphone"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product8.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Smartphone RAM 4GB
-                                                    New</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item smartphone"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product9.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Smartphone RAM 8GB
-                                                    New</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item smartphone"
-                                    >
-                                        <div
-                                            class="product-o product-o--hover-on product-o--radius"
-                                        >
-                                            <div
-                                                class="product-o__wrap"
-                                            >
-                                                <a
-                                                    class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="product-detail.html"
-                                                >
-                                                    <img
-                                                        class="aspect__img"
-                                                        src="images/product/electronic/product10.jpg"
-                                                        alt=""
-                                                /></a>
-                                                <div
-                                                    class="product-o__action-wrap"
-                                                >
-                                                    <ul
-                                                        class="product-o__action-list"
-                                                    >
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#quick-look"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Quick View"
-                                                                ><i
-                                                                    class="fas fa-search-plus"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                data-modal="modal"
-                                                                data-modal-id="#add-to-cart"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Cart"
-                                                                ><i
-                                                                    class="fas fa-plus-circle"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Add to Wishlist"
-                                                                ><i
-                                                                    class="fas fa-heart"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="signin.html"
-                                                                data-tooltip="tooltip"
-                                                                data-placement="top"
-                                                                title="Email me When the price drops"
-                                                                ><i
-                                                                    class="fas fa-envelope"
-                                                                ></i
-                                                            ></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <span
-                                                class="product-o__category"
-                                            >
-                                                <a
-                                                    href="shop-side-version-2.html"
-                                                    >Electronics</a
-                                                ></span
-                                            >
-
-                                            <span
-                                                class="product-o__name"
-                                            >
-                                                <a
-                                                    href="product-detail.html"
-                                                    >Smartphone RAM 16GB
-                                                    New</a
-                                                ></span
-                                            >
-                                            <div
-                                                class="product-o__rating gl-rating-style"
-                                            >
-                                                <i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star"
-                                                ></i
-                                                ><i
-                                                    class="fas fa-star-half-alt"
-                                                ></i>
-
-                                                <span
-                                                    class="product-o__review"
-                                                    >(23)</span
-                                                >
-                                            </div>
-
-                                            <span
-                                                class="product-o__price"
-                                                >$125.00
-
-                                                <span
-                                                    class="product-o__discount"
-                                                    >$160.00</span
-                                                ></span
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
+                                 <span
+                                     class="product-o__discount"
+                                     >$160.00</span
+                                 ></span
+                             >
+                         </div>
+                     </div>
+                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          
+                    </div>
+                               
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="load-more">
-                                <button
+                                <a
                                     class="btn btn--e-brand"
                                     type="button"
+                                    href="<?php echo e(Route('items_cats')); ?>"
                                 >
                                     Load More
-                                </button>
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -1391,7 +273,7 @@
                                 <h1
                                     class="section__heading u-c-secondary u-s-m-b-12"
                                 >
-                                    Last Added
+                                    LAST ADDED
                                 </h1>
 
                                 <span class="section__span u-c-silver"
@@ -1412,642 +294,105 @@
                             class="owl-carousel product-slider"
                             data-item="4"
                         >
-                            <div class="u-s-m-b-30">
-                                <div
-                                    class="product-o product-o--hover-on"
-                                >
-                                    <div class="product-o__wrap">
-                                        <a
-                                            class="aspect aspect--bg-grey aspect--square u-d-block"
-                                            href="product-detail.html"
-                                        >
-                                            <img
-                                                class="aspect__img"
-                                                src="images/product/electronic/product13.jpg"
-                                                alt=""
-                                        /></a>
-                                        <div
-                                            class="product-o__action-wrap"
-                                        >
-                                            <ul
-                                                class="product-o__action-list"
-                                            >
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#quick-look"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Quick View"
-                                                        ><i
-                                                            class="fas fa-search-plus"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Cart"
-                                                        ><i
-                                                            class="fas fa-plus-circle"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Wishlist"
-                                                        ><i
-                                                            class="fas fa-heart"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Email me When the price drops"
-                                                        ><i
-                                                            class="fas fa-envelope"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <span class="product-o__category">
-                                        <a
-                                            href="shop-side-version-2.html"
-                                            >Electronics</a
-                                        ></span
+                        <?php $__currentLoopData = $last_added; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="u-s-m-b-30">
+                            <div
+                                class="product-o product-o--hover-on"
+                            >
+                                <div class="product-o__wrap">
+                                    <a
+                                        class="aspect aspect--bg-grey aspect--square u-d-block"
+                                        href="product-detail.html"
                                     >
-
-                                    <span class="product-o__name">
-                                        <a href="product-detail.html"
-                                            >Nikon DSLR 4K Camera</a
-                                        ></span
-                                    >
+                                        <img
+                                            class="aspect__img"
+                                            src="<?php echo e($item->image); ?>"
+                                            alt=""
+                                    /></a>
                                     <div
-                                        class="product-o__rating gl-rating-style"
+                                        class="product-o__action-wrap"
                                     >
-                                        <i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i>
-
-                                        <span class="product-o__review"
-                                            >(0)</span
+                                        <ul
+                                            class="product-o__action-list"
                                         >
+                                            <li>
+                                                <a
+                                                    data-modal="modal"
+                                                    data-modal-id="#quick-look"
+                                                    data-tooltip="tooltip"
+                                                    data-placement="top"
+                                                    title="Quick View"
+                                                    ><i
+                                                        class="fas fa-search-plus"
+                                                    ></i
+                                                ></a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    data-modal="modal"
+                                                    data-modal-id="#add-to-cart"
+                                                    data-tooltip="tooltip"
+                                                    data-placement="top"
+                                                    title="Add to Cart"
+                                                    ><i
+                                                        class="fas fa-plus-circle"
+                                                    ></i
+                                                ></a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="signin.html"
+                                                    data-tooltip="tooltip"
+                                                    data-placement="top"
+                                                    title="Add to Wishlist"
+                                                    ><i
+                                                        class="fas fa-heart"
+                                                    ></i
+                                                ></a>
+                                            </li>
+                                            
+                                        </ul>
                                     </div>
-
-                                    <span class="product-o__price"
-                                        >$125.00
-
-                                        <span
-                                            class="product-o__discount"
-                                            >$160.00</span
-                                        ></span
-                                    >
                                 </div>
-                            </div>
-                            <div class="u-s-m-b-30">
-                                <div
-                                    class="product-o product-o--hover-on"
+
+                                <span class="product-o__category">
+                                    <a
+                                        href="shop-side-version-2.html"
+                                        ><?php echo e($item->Category->name); ?></a
+                                    ></span
                                 >
-                                    <div class="product-o__wrap">
-                                        <a
-                                            class="aspect aspect--bg-grey aspect--square u-d-block"
-                                            href="product-detail.html"
-                                        >
-                                            <img
-                                                class="aspect__img"
-                                                src="images/product/electronic/product14.jpg"
-                                                alt=""
-                                        /></a>
-                                        <div
-                                            class="product-o__action-wrap"
-                                        >
-                                            <ul
-                                                class="product-o__action-list"
-                                            >
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#quick-look"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Quick View"
-                                                        ><i
-                                                            class="fas fa-search-plus"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Cart"
-                                                        ><i
-                                                            class="fas fa-plus-circle"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Wishlist"
-                                                        ><i
-                                                            class="fas fa-heart"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Email me When the price drops"
-                                                        ><i
-                                                            class="fas fa-envelope"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
 
-                                    <span class="product-o__category">
-                                        <a
-                                            href="shop-side-version-2.html"
-                                            >Electronics</a
-                                        ></span
-                                    >
-
-                                    <span class="product-o__name">
-                                        <a href="product-detail.html"
-                                            >Nikon DSLR 2K Camera</a
-                                        ></span
-                                    >
-                                    <div
-                                        class="product-o__rating gl-rating-style"
-                                    >
-                                        <i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i>
-
-                                        <span class="product-o__review"
-                                            >(0)</span
-                                        >
-                                    </div>
-
-                                    <span class="product-o__price"
-                                        >$125.00
-
-                                        <span
-                                            class="product-o__discount"
-                                            >$160.00</span
-                                        ></span
-                                    >
-                                </div>
-                            </div>
-                            <div class="u-s-m-b-30">
-                                <div
-                                    class="product-o product-o--hover-on"
+                                <span class="product-o__name">
+                                    <a href="product-detail.html"
+                                        ><?php echo e($item->title); ?></a
+                                    ></span
                                 >
-                                    <div class="product-o__wrap">
-                                        <a
-                                            class="aspect aspect--bg-grey aspect--square u-d-block"
-                                            href="product-detail.html"
-                                        >
-                                            <img
-                                                class="aspect__img"
-                                                src="images/product/electronic/product15.jpg"
-                                                alt=""
-                                        /></a>
-                                        <div
-                                            class="product-o__action-wrap"
-                                        >
-                                            <ul
-                                                class="product-o__action-list"
-                                            >
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#quick-look"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Quick View"
-                                                        ><i
-                                                            class="fas fa-search-plus"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Cart"
-                                                        ><i
-                                                            class="fas fa-plus-circle"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Wishlist"
-                                                        ><i
-                                                            class="fas fa-heart"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Email me When the price drops"
-                                                        ><i
-                                                            class="fas fa-envelope"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <span class="product-o__category">
-                                        <a
-                                            href="shop-side-version-2.html"
-                                            >Electronics</a
-                                        ></span
-                                    >
-
-                                    <span class="product-o__name">
-                                        <a href="product-detail.html"
-                                            >Sony DSLR 4K Camera</a
-                                        ></span
-                                    >
-                                    <div
-                                        class="product-o__rating gl-rating-style"
-                                    >
-                                        <i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i>
-
-                                        <span class="product-o__review"
-                                            >(0)</span
-                                        >
-                                    </div>
-
-                                    <span class="product-o__price"
-                                        >$125.00
-
-                                        <span
-                                            class="product-o__discount"
-                                            >$160.00</span
-                                        ></span
-                                    >
-                                </div>
-                            </div>
-                            <div class="u-s-m-b-30">
                                 <div
-                                    class="product-o product-o--hover-on"
+                                    class="product-o__rating gl-rating-style"
                                 >
-                                    <div class="product-o__wrap">
-                                        <a
-                                            class="aspect aspect--bg-grey aspect--square u-d-block"
-                                            href="product-detail.html"
-                                        >
-                                            <img
-                                                class="aspect__img"
-                                                src="images/product/electronic/product16.jpg"
-                                                alt=""
-                                        /></a>
-                                        <div
-                                            class="product-o__action-wrap"
-                                        >
-                                            <ul
-                                                class="product-o__action-list"
-                                            >
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#quick-look"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Quick View"
-                                                        ><i
-                                                            class="fas fa-search-plus"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Cart"
-                                                        ><i
-                                                            class="fas fa-plus-circle"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Wishlist"
-                                                        ><i
-                                                            class="fas fa-heart"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Email me When the price drops"
-                                                        ><i
-                                                            class="fas fa-envelope"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <i class="far fa-star"></i
+                                    ><i class="far fa-star"></i
+                                    ><i class="far fa-star"></i
+                                    ><i class="far fa-star"></i
+                                    ><i class="far fa-star"></i>
 
-                                    <span class="product-o__category">
-                                        <a
-                                            href="shop-side-version-2.html"
-                                            >Electronics</a
-                                        ></span
-                                    >
-
-                                    <span class="product-o__name">
-                                        <a href="product-detail.html"
-                                            >Sony DSLR 2K Camera</a
-                                        ></span
-                                    >
-                                    <div
-                                        class="product-o__rating gl-rating-style"
-                                    >
-                                        <i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i>
-
-                                        <span class="product-o__review"
-                                            >(0)</span
-                                        >
-                                    </div>
-
-                                    <span class="product-o__price"
-                                        >$125.00
-
-                                        <span
-                                            class="product-o__discount"
-                                            >$160.00</span
-                                        ></span
-                                    >
+                                   
                                 </div>
-                            </div>
-                            <div class="u-s-m-b-30">
-                                <div
-                                    class="product-o product-o--hover-on"
+
+                                <span class="product-o__price"
+                                    >$<?php echo e($item->price); ?>
+
+
+                                    <span
+                                        class="product-o__discount"
+                                        >$160.00</span
+                                    ></span
                                 >
-                                    <div class="product-o__wrap">
-                                        <a
-                                            class="aspect aspect--bg-grey aspect--square u-d-block"
-                                            href="product-detail.html"
-                                        >
-                                            <img
-                                                class="aspect__img"
-                                                src="images/product/electronic/product17.jpg"
-                                                alt=""
-                                        /></a>
-                                        <div
-                                            class="product-o__action-wrap"
-                                        >
-                                            <ul
-                                                class="product-o__action-list"
-                                            >
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#quick-look"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Quick View"
-                                                        ><i
-                                                            class="fas fa-search-plus"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Cart"
-                                                        ><i
-                                                            class="fas fa-plus-circle"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Wishlist"
-                                                        ><i
-                                                            class="fas fa-heart"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Email me When the price drops"
-                                                        ><i
-                                                            class="fas fa-envelope"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <span class="product-o__category">
-                                        <a
-                                            href="shop-side-version-2.html"
-                                            >Electronics</a
-                                        ></span
-                                    >
-
-                                    <span class="product-o__name">
-                                        <a href="product-detail.html"
-                                            >Canon DSLR 4K Camera</a
-                                        ></span
-                                    >
-                                    <div
-                                        class="product-o__rating gl-rating-style"
-                                    >
-                                        <i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i>
-
-                                        <span class="product-o__review"
-                                            >(0)</span
-                                        >
-                                    </div>
-
-                                    <span class="product-o__price"
-                                        >$125.00
-
-                                        <span
-                                            class="product-o__discount"
-                                            >$160.00</span
-                                        ></span
-                                    >
-                                </div>
                             </div>
-                            <div class="u-s-m-b-30">
-                                <div
-                                    class="product-o product-o--hover-on"
-                                >
-                                    <div class="product-o__wrap">
-                                        <a
-                                            class="aspect aspect--bg-grey aspect--square u-d-block"
-                                            href="product-detail.html"
-                                        >
-                                            <img
-                                                class="aspect__img"
-                                                src="images/product/electronic/product18.jpg"
-                                                alt=""
-                                        /></a>
-                                        <div
-                                            class="product-o__action-wrap"
-                                        >
-                                            <ul
-                                                class="product-o__action-list"
-                                            >
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#quick-look"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Quick View"
-                                                        ><i
-                                                            class="fas fa-search-plus"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        data-modal="modal"
-                                                        data-modal-id="#add-to-cart"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Cart"
-                                                        ><i
-                                                            class="fas fa-plus-circle"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Add to Wishlist"
-                                                        ><i
-                                                            class="fas fa-heart"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="signin.html"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="Email me When the price drops"
-                                                        ><i
-                                                            class="fas fa-envelope"
-                                                        ></i
-                                                    ></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <span class="product-o__category">
-                                        <a
-                                            href="shop-side-version-2.html"
-                                            >Electronics</a
-                                        ></span
-                                    >
-
-                                    <span class="product-o__name">
-                                        <a href="product-detail.html"
-                                            >Canon DSLR 2K Camera</a
-                                        ></span
-                                    >
-                                    <div
-                                        class="product-o__rating gl-rating-style"
-                                    >
-                                        <i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i
-                                        ><i class="far fa-star"></i>
-
-                                        <span class="product-o__review"
-                                            >(0)</span
-                                        >
-                                    </div>
-
-                                    <span class="product-o__price"
-                                        >$125.00
-
-                                        <span
-                                            class="product-o__discount"
-                                            >$160.00</span
-                                        ></span
-                                    >
-                                </div>
-                            </div>
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                           
+                         
                         </div>
                     </div>
                 </div>
@@ -2084,9 +429,8 @@
             <div class="section__content">
                 <div class="container">
                     <div class="row">
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
+                        <?php $__currentLoopData = $best_offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30" >
                             <div
                                 class="product-o product-o--hover-on u-h-100"
                             >
@@ -2097,7 +441,7 @@
                                     >
                                         <img
                                             class="aspect__img"
-                                            src="images/product/electronic/product19.jpg"
+                                            src="<?php echo e($offer->image); ?>"
                                             alt=""
                                     /></a>
                                     <div class="product-o__action-wrap">
@@ -2139,30 +483,20 @@
                                                     ></i
                                                 ></a>
                                             </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Email me When the price drops"
-                                                    ><i
-                                                        class="fas fa-envelope"
-                                                    ></i
-                                                ></a>
-                                            </li>
+                                          
                                         </ul>
                                     </div>
                                 </div>
 
                                 <span class="product-o__category">
                                     <a href="shop-side-version-2.html"
-                                        >Electronics</a
+                                        ><?php echo e($offer->Category->name); ?></a
                                     ></span
                                 >
 
                                 <span class="product-o__name">
                                     <a href="product-detail.html"
-                                        >Tablet 14inch Screen</a
+                                        ><?php echo e($offer->title); ?></a
                                     ></span
                                 >
                                 <div
@@ -2176,13 +510,12 @@
                                         class="fas fa-star-half-alt"
                                     ></i>
 
-                                    <span class="product-o__review"
-                                        >(23)</span
-                                    >
+                                   
                                 </div>
 
                                 <span class="product-o__price"
-                                    >$125.00
+                                    >$<?php echo e($offer->price); ?>
+
 
                                     <span class="product-o__discount"
                                         >$160.00</span
@@ -2190,326 +523,9 @@
                                 >
                             </div>
                         </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div
-                                class="product-o product-o--hover-on u-h-100"
-                            >
-                                <div class="product-o__wrap">
-                                    <a
-                                        class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="product-detail.html"
-                                    >
-                                        <img
-                                            class="aspect__img"
-                                            src="images/product/electronic/product20.jpg"
-                                            alt=""
-                                    /></a>
-                                    <div class="product-o__action-wrap">
-                                        <ul
-                                            class="product-o__action-list"
-                                        >
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#quick-look"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Quick View"
-                                                    ><i
-                                                        class="fas fa-search-plus"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Email me When the price drops"
-                                                    ><i
-                                                        class="fas fa-envelope"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <span class="product-o__category">
-                                    <a href="shop-side-version-2.html"
-                                        >Electronics</a
-                                    ></span
-                                >
-
-                                <span class="product-o__name">
-                                    <a href="product-detail.html"
-                                        >Tablet 18inch Screen</a
-                                    ></span
-                                >
-                                <div
-                                    class="product-o__rating gl-rating-style"
-                                >
-                                    <i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i
-                                        class="fas fa-star-half-alt"
-                                    ></i>
-
-                                    <span class="product-o__review"
-                                        >(23)</span
-                                    >
-                                </div>
-
-                                <span class="product-o__price"
-                                    >$125.00
-
-                                    <span class="product-o__discount"
-                                        >$160.00</span
-                                    ></span
-                                >
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div
-                                class="product-o product-o--hover-on u-h-100"
-                            >
-                                <div class="product-o__wrap">
-                                    <a
-                                        class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="product-detail.html"
-                                    >
-                                        <img
-                                            class="aspect__img"
-                                            src="images/product/electronic/product21.jpg"
-                                            alt=""
-                                    /></a>
-                                    <div class="product-o__action-wrap">
-                                        <ul
-                                            class="product-o__action-list"
-                                        >
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#quick-look"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Quick View"
-                                                    ><i
-                                                        class="fas fa-search-plus"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Email me When the price drops"
-                                                    ><i
-                                                        class="fas fa-envelope"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <span class="product-o__category">
-                                    <a href="shop-side-version-2.html"
-                                        >Electronics</a
-                                    ></span
-                                >
-
-                                <span class="product-o__name">
-                                    <a href="product-detail.html"
-                                        >Tablet 13inch Screen Ram
-                                        16GB</a
-                                    ></span
-                                >
-                                <div
-                                    class="product-o__rating gl-rating-style"
-                                >
-                                    <i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i
-                                        class="fas fa-star-half-alt"
-                                    ></i>
-
-                                    <span class="product-o__review"
-                                        >(23)</span
-                                    >
-                                </div>
-
-                                <span class="product-o__price"
-                                    >$125.00
-
-                                    <span class="product-o__discount"
-                                        >$160.00</span
-                                    ></span
-                                >
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30"
-                        >
-                            <div
-                                class="product-o product-o--hover-on u-h-100"
-                            >
-                                <div class="product-o__wrap">
-                                    <a
-                                        class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="product-detail.html"
-                                    >
-                                        <img
-                                            class="aspect__img"
-                                            src="images/product/electronic/product22.jpg"
-                                            alt=""
-                                    /></a>
-                                    <div class="product-o__action-wrap">
-                                        <ul
-                                            class="product-o__action-list"
-                                        >
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#quick-look"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Quick View"
-                                                    ><i
-                                                        class="fas fa-search-plus"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Email me When the price drops"
-                                                    ><i
-                                                        class="fas fa-envelope"
-                                                    ></i
-                                                ></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <span class="product-o__category">
-                                    <a href="shop-side-version-2.html"
-                                        >Electronics</a
-                                    ></span
-                                >
-
-                                <span class="product-o__name">
-                                    <a href="product-detail.html"
-                                        >Tablet 12inch Screen Ram
-                                        16GB</a
-                                    ></span
-                                >
-                                <div
-                                    class="product-o__rating gl-rating-style"
-                                >
-                                    <i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i class="fas fa-star"></i
-                                    ><i
-                                        class="fas fa-star-half-alt"
-                                    ></i>
-
-                                    <span class="product-o__review"
-                                        >(23)</span
-                                    >
-                                </div>
-
-                                <span class="product-o__price"
-                                    >$125.00
-
-                                    <span class="product-o__discount"
-                                        >$160.00</span
-                                    ></span
-                                >
-                            </div>
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                       
+       
                     </div>
                 </div>
             </div>
