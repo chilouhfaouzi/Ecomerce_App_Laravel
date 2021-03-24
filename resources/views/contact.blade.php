@@ -102,12 +102,13 @@
 
                                                 <label for="c-name"></label>
 
-                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-name" placeholder="Name (Required)" required></div>
+                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-name" placeholder=" @guest  Name (Required) @endguest" value="@auth {{Auth::user()->name}}@endauth" required readonly></div>
                                             <div class="u-s-m-b-30">
 
                                                 <label for="c-email"></label>
 
-                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-email" placeholder="Email (Required)" required></div>
+                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-email"placeholder=" @guest  Email (Required) @endguest" value="@auth {{Auth::user()->email}}@endauth" required readonly></div>
+   
                                             <div class="u-s-m-b-30">
 
                                                 <label for="c-subject"></label>

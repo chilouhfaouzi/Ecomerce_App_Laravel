@@ -35,20 +35,11 @@
                             <div class="l-f-o">
                                 <div class="l-f-o__pad-box">
                                     <h1 class="gl-h1">PERSONAL INFORMATION</h1>
+                                    <div class="u-s-m-b-15">
+
+                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="{{ Route('login')}}">SIGN IN</a></div>
                                     <form method="POST" action="{{ route('register') }}" class="l-f-o__form">
-                                        @csrf
-                                        <div class="gl-s-api">
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
-
-                                                    <span>Signup with Facebook</span></button></div>
-                                            <div class="u-s-m-b-30">
-
-                                                <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
-
-                                                    <span>Signup with Google</span></button></div>
-                                        </div>
+                                        @csrf                                 
                                         <div class="u-s-m-b-30">
 
                                             <label class="gl-label" for="reg-fname">{{ __('FULL NAME') }} *</label>

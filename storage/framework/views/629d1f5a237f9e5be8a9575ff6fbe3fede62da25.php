@@ -117,6 +117,7 @@
                                                         <span>Account</span></a
                                                     >
                                                 </li>
+                                                <?php if(auth()->guard()->guest()): ?>
                                                 <li>
                                                     <a href="<?php echo e(Route('register')); ?>"
                                                         ><i
@@ -127,7 +128,7 @@
                                                     >
                                                 </li>
                                                 <li>
-                                                    <a href="<?php echo e(Route('login')); ?>"
+                                                    <a href="<?php echo e(Route('login')); ?>" 
                                                         ><i
                                                             class="fas fa-lock u-s-m-r-6"
                                                         ></i>
@@ -135,15 +136,27 @@
                                                         <span>Signin</span></a
                                                     >
                                                 </li>
-                                                <li>
-                                                    <a href="signup.html"
-                                                        ><i
-                                                            class="fas fa-lock-open u-s-m-r-6"
-                                                        ></i>
-
-                                                        <span>Signout</span></a
-                                                    >
-                                                </li>
+                                                <?php endif; ?>
+                                               <?php if(auth()->guard()->check()): ?>
+                                               <li>
+                                                   <form action="<?php echo e(Route('logout')); ?>" method="POST">
+                                                       <?php echo csrf_field(); ?>
+                                                       <a style="display: block;
+                                                       padding: 8px 20px;
+                                                       color: #333333;
+                                                       font-size: 12px;
+                                                       font-weight: 600;"  onclick="$(this).closest('form').submit();"
+                                                       ><i
+                                                           class="fas fa-lock-open u-s-m-r-6"
+                                                       ></i>
+   
+                                                       <span>Signout</span></a
+                                                   >
+                                                   </form>
+                                               
+                                            </li>
+                                               <?php endif; ?>
+                                               
                                             </ul>
                                             <!--====== End - Dropdown ======-->
                                         </li>
@@ -502,19 +515,7 @@
                                                         <a href="<?php echo e(Route('myaccount')); ?>"
                                                             >Account</a
                                                         >
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            href="<?php echo e(Route('items_cats')); ?>"
-                                                            >Manufacturer</a
-                                                        >
-                                                    </li>
-                                                    <li>
-                                                        <a
-                                                            href="dash-payment-option.html"
-                                                            >Finance</a
-                                                        >
-                                                    </li>
+                                                    </li>                                                   
                                                     <li>
                                                         <a
                                                             href="<?php echo e(Route('items_cats')); ?>"
@@ -538,12 +539,12 @@
                                                 >
                                                 <ul>
                                                     <li>
-                                                        <a href="about.html"
+                                                        <a href="<?php echo e(Route('about')); ?>"
                                                             >About us</a
                                                         >
                                                     </li>
                                                     <li>
-                                                        <a href="contact.html"
+                                                        <a href="<?php echo e(Route('contact')); ?>"
                                                             >Contact Us</a
                                                         >
                                                     </li>                                             

@@ -1,8 +1,8 @@
-@extends('layouts.template')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="container">
-    @section('title', 'Reset')
+    <?php $__env->startSection('title', 'Reset'); ?>
 
 
 
@@ -34,14 +34,12 @@
                                         <h1 class="gl-h1">PASSWORD RESET</h1>
 
                                         <span class="gl-text u-s-m-b-30">Enter your email or username below and we will send you a link to reset your password.</span>
-                                        <form method="POST" action="{{ route('password.email') }}" class="l-f-o__form">
-                                            @csrf
-                                            <input type="hidden" name="token" value="{{ $token }}">
+                                        <form class="l-f-o__form">
                                             <div class="u-s-m-b-30">
 
                                                 <label class="gl-label" for="reset-email">E-MAIL *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="reset-email" placeholder="Enter E-mail" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus></div>
+                                                <input class="input-text input-text--primary-style" type="text" id="reset-email" placeholder="Enter E-mail"></div>
                                             <div class="u-s-m-b-30">
 
                                                 <button class="btn btn--e-transparent-brand-b-2" type="submit">SUBMIT</button></div>
@@ -60,4 +58,6 @@
             <!--====== End - Section 2 ======-->
     
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Fawzi\Desktop\laravel_ecomerce_prj\resources\views/lost-password.blade.php ENDPATH**/ ?>

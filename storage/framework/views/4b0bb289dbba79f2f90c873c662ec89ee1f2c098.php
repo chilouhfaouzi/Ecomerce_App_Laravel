@@ -38,24 +38,12 @@
                                     <span class="gl-text u-s-m-b-30">By creating an account with our store, you will be able to move through the checkout process faster, store shipping addresses, view and track your orders in your account and more.</span>
                                     <div class="u-s-m-b-15">
 
-                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="<?php echo e(Route('sign')); ?>">CREATE AN ACCOUNT</a></div>
+                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="<?php echo e(Route('register')); ?>">CREATE AN ACCOUNT</a></div>
                                     <h1 class="gl-h1">SIGNIN</h1>
 
                                     <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
                                     <form method="POST" action="<?php echo e(route('login')); ?>" class="l-f-o__form">
-                                        <?php echo csrf_field(); ?>                                 
-                                        <div class="gl-s-api">
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
-
-                                                    <span>Signin with Facebook</span></button></div>
-                                            <div class="u-s-m-b-15">
-
-                                                <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
-
-                                                    <span>Signin with Google</span></button></div>
-                                        </div>
+                                        <?php echo csrf_field(); ?>                                                                       
                                         <div class="u-s-m-b-30">
 
                                             <label class="gl-label" for="login-email">E-MAIL *</label>
@@ -107,10 +95,7 @@ unset($__errorArgs, $__bag); ?>
                                             <div class="gl-inline">
                                             <div class="u-s-m-b-30">
 
-                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button></div>
-                                            <div class="u-s-m-b-30">
-
-                                                <a class="gl-link" href="lost-password.html">Lost Your Password?</a></div>
+                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button></div>                                        
                                         </div>
                                         <div class="u-s-m-b-30">
 
@@ -123,12 +108,7 @@ unset($__errorArgs, $__bag); ?>
                                                     <label class="check-box__label" for="remember">Remember Me</label></div>
                                             </div>
                                             <!--====== End - Check Box ======-->
-                                            <?php if(Route::has('password.request')): ?>
-                                         <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
-                                            <?php echo e(__('Forgot Your Password?')); ?>
-
-                                         </a>
-                                         <?php endif; ?>
+                                         
                                         </div>
                                     </form>
                                 </div>

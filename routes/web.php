@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\ProductController;
@@ -40,9 +41,7 @@ Route::get('/wishlist', function () {
 Route::get('/sign', function () {
     return view('sign');
 })->name('sign');
-Route::get('/myaccount', function () {
-    return view('myaccount');
-})->name('myaccount');
+
 Route::get('/items_cats', [CategoryProductController::class, 'index'])->name('items_cats');
 Route::post('/items_cats', [CategoryProductController::class, 'index'])->name('items');
 Route::get('/product', function () {
@@ -51,6 +50,13 @@ Route::get('/product', function () {
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Auth::routes();
+
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
@@ -59,11 +65,11 @@ Route::get('/orders', function () {
 })->name('orders');
 Route::get('/profile-edit', function () {
     return view('edit_account');
-})->name('edit_account');
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-Auth::routes();
+})->middleware('auth')->name('edit_account');
+Route::post('/profile-edit', [AccountController::class, 'store'])->name('profile-edit');
 
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/myaccount', function () {
+    return view('myaccount');
+})->middleware('auth')->name('myaccount');

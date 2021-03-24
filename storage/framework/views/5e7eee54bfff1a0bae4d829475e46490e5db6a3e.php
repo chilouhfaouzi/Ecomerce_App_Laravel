@@ -22,25 +22,16 @@
                                         <ul class="dash__f-list">
                                             <li>
 
-                                                <a class="dash-active" href="dashboard.html">Manage My Account</a></li>
+                                                <a  href="<?php echo e(Route('myaccount')); ?>">Manage My Account</a></li>
                                             <li>
 
-                                                <a href="dash-my-profile.html">My Profile</a></li>
+                                                <a class="dash-active"  href="">My Profile</a></li>
+                                           
+                                           
                                             <li>
-
-                                                <a href="dash-address-book.html">Address Book</a></li>
-                                            <li>
-
-                                                <a href="dash-track-order.html">Track Order</a></li>
-                                            <li>
-
                                                 <a href="dash-my-order.html">My Orders</a></li>
-                                            <li>
 
-                                                <a href="dash-payment-option.html">My Payment Options</a></li>
-                                            <li>
-
-                                                <a href="dash-cancellation.html">My Returns & Cancellations</a></li>
+                                        
                                         </ul>
                                     </div>
                                 </div>
@@ -77,71 +68,53 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <form class="dash-edit-p">
+                                                <form method="POST" action="<?php echo e(route('profile-edit')); ?>" class="dash-edit-p">
+                                                    <?php echo csrf_field(); ?>
                                                     <div class="gl-inline">
                                                         <div class="u-s-m-b-30">
 
-                                                            <label class="gl-label" for="reg-fname">FIRST NAME *</label>
+                                                            <label class="gl-label" for="name">FULL NAME *</label>
 
-                                                            <input class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="John"></div>
-                                                        <div class="u-s-m-b-30">
-
-                                                            <label class="gl-label" for="reg-lname">LAST NAME *</label>
-
-                                                            <input class="input-text input-text--primary-style" type="text" id="reg-lname" placeholder="Doe"></div>
+                                                            <input class="input-text input-text--primary-style" type="text" name="name" id="name" value="<?php echo e(Auth::user()->name); ?>"></div>
+                                                            <div class="u-s-m-b-30">
+                                                                <label class="gl-label" for="email">EMAIL *</label>
+                                                                <input class="input-text input-text--primary-style" type="email" id="email" name="email" value="<?php echo e(Auth::user()->email); ?>">
+                                                                
+                                                            </div>
+                                                        
                                                     </div>
                                                     <div class="gl-inline">
                                                         <div class="u-s-m-b-30">
 
-                                                            <!--====== Date of Birth Select-Box ======-->
+                                                            <label class="gl-label" for="adresse">ADRESSE *</label>
 
-                                                            <span class="gl-label">BIRTHDAY</span>
-                                                            <div class="gl-dob"><select class="select-box select-box--primary-style">
-                                                                    <option selected>Month</option>
-                                                                    <option value="male">January</option>
-                                                                    <option value="male">February</option>
-                                                                    <option value="male">March</option>
-                                                                    <option value="male">April</option>
-                                                                </select><select class="select-box select-box--primary-style">
-                                                                    <option selected>Day</option>
-                                                                    <option value="01">01</option>
-                                                                    <option value="02">02</option>
-                                                                    <option value="03">03</option>
-                                                                    <option value="04">04</option>
-                                                                </select><select class="select-box select-box--primary-style">
-                                                                    <option selected>Year</option>
-                                                                    <option value="1991">1991</option>
-                                                                    <option value="1992">1992</option>
-                                                                    <option value="1993">1993</option>
-                                                                    <option value="1994">1994</option>
-                                                                </select></div>
-                                                            <!--====== End - Date of Birth Select-Box ======-->
-                                                        </div>
-                                                        <div class="u-s-m-b-30">
-
-                                                            <label class="gl-label" for="gender">GENDER</label><select class="select-box select-box--primary-style u-w-100" id="gender">
-                                                                <option selected>Select</option>
-                                                                <option value="male">Male</option>
-                                                                <option value="male">Female</option>
-                                                            </select></div>
+                                                            <input class="input-text input-text--primary-style" type="text" id="adresse" name="adresse" value="<?php echo e(Auth::user()->lines); ?>" placeholder="ex: N14 Ctre Ait Youssef Ou Ali "></div>
                                                     </div>
                                                     <div class="gl-inline">
                                                         <div class="u-s-m-b-30">
-                                                            <h2 class="dash__h2 u-s-m-b-8">E-mail</h2>
 
-                                                            <span class="dash__text">johndoe@domain.com</span>
-                                                            <div class="dash__link dash__link--secondary">
+                                                            <label class="gl-label" for="zipcode">ZIP CODE *</label>
 
-                                                                <a href="#">Change</a></div>
-                                                        </div>
+                                                            <input class="input-text input-text--primary-style" type="text" id="zipcode" name="zipcode" value="<?php echo e(Auth::user()->zip_code); ?>" placeholder="ex: 32003"></div>
                                                         <div class="u-s-m-b-30">
-                                                            <h2 class="dash__h2 u-s-m-b-8">Phone</h2>
 
-                                                            <span class="dash__text">Please enter your mobile</span>
-                                                            <div class="dash__link dash__link--secondary">
+                                                            <label class="gl-label" for="city">CITY *</label>
 
-                                                                <a href="#">Add</a></div>
+                                                            <input class="input-text input-text--primary-style" type="text" id="city" name="city" value="<?php echo e(Auth::user()->city); ?>"  placeholder="ex:Al-Hoceima"></div>
+                                                        
+                                                    </div>
+                                                    <div class="gl-inline">
+                                                        <div class="u-s-m-b-30">
+
+                                                            <label class="gl-label" for="country">COUNTRY *</label>
+
+                                                            <input class="input-text input-text--primary-style" type="text" id="country" name="country" value="<?php echo e(Auth::user()->country); ?>" placeholder="ex: Morocco"></div>
+                                                        <div class="u-s-m-b-30">
+                                                            <label class="gl-label" for="email">PHONE *</label>
+                                                            <input class="input-text input-text--primary-style" type="text" id="phone" name="phone" value="<?php echo e(Auth::user()->tel); ?>" placeholder="ex : +212 706465821">
+                                                            
                                                         </div>
+                                                       
                                                     </div>
 
                                                     <button class="btn btn--e-brand-b-2" type="submit">SAVE</button>

@@ -102,12 +102,13 @@
 
                                                 <label for="c-name"></label>
 
-                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-name" placeholder="Name (Required)" required></div>
+                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-name" placeholder=" <?php if(auth()->guard()->guest()): ?>  Name (Required) <?php endif; ?>" value="<?php if(auth()->guard()->check()): ?> <?php echo e(Auth::user()->name); ?><?php endif; ?>" required readonly></div>
                                             <div class="u-s-m-b-30">
 
                                                 <label for="c-email"></label>
 
-                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-email" placeholder="Email (Required)" required></div>
+                                                <input class="input-text input-text--border-radius input-text--primary-style" type="text" id="c-email"placeholder=" <?php if(auth()->guard()->guest()): ?>  Email (Required) <?php endif; ?>" value="<?php if(auth()->guard()->check()): ?> <?php echo e(Auth::user()->email); ?><?php endif; ?>" required readonly></div>
+   
                                             <div class="u-s-m-b-30">
 
                                                 <label for="c-subject"></label>
