@@ -1,73 +1,116 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        <!--====== Section 1 ======-->
+        @section('title', 'login')
+        <!--====== End - Section 1 ======-->
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <!--====== Section 2 ======-->
+        <div class="u-s-p-b-60">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+            <!--====== Section Intro ======-->
+            <div class="section__intro u-s-m-b-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section__text-wrap">
+                                <h1 class="section__heading u-c-secondary">ALREADY REGISTERED?</h1>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section Intro ======-->
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <!--====== Section Content ======-->
+            <div class="section__content">
+                <div class="container">
+                    <div class="row row--center">
+                        <div class="col-lg-6 col-md-8 u-s-m-b-30">
+                            <div class="l-f-o">
+                                <div class="l-f-o__pad-box">
+                                    <h1 class="gl-h1">I'M NEW CUSTOMER</h1>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                                    <span class="gl-text u-s-m-b-30">By creating an account with our store, you will be able to move through the checkout process faster, store shipping addresses, view and track your orders in your account and more.</span>
+                                    <div class="u-s-m-b-15">
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <a class="l-f-o__create-link btn--e-transparent-brand-b-2" href="{{ Route('sign')}}">CREATE AN ACCOUNT</a></div>
+                                    <h1 class="gl-h1">SIGNIN</h1>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                    <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
+                                    <form method="POST" action="{{ route('login') }}" class="l-f-o__form">
+                                        @csrf                                 
+                                        <div class="gl-s-api">
+                                            <div class="u-s-m-b-15">
+
+                                                <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
+
+                                                    <span>Signin with Facebook</span></button></div>
+                                            <div class="u-s-m-b-15">
+
+                                                <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
+
+                                                    <span>Signin with Google</span></button></div>
+                                        </div>
+                                        <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="login-email">E-MAIL *</label>
+
+                                            <input class="input-text input-text--primary-style @error('email') is-invalid @enderror" name="email" type="text" id="login-email" placeholder="Enter E-mail"></div>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                            <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="login-password">PASSWORD *</label>
+
+                                            <input class="input-text input-text--primary-style  @error('password') is-invalid @enderror" name="password" type="text" id="login-password" placeholder="Enter Password"></div>
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                           @enderror
+                                            <div class="gl-inline">
+                                            <div class="u-s-m-b-30">
+
+                                                <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button></div>
+                                            <div class="u-s-m-b-30">
+
+                                                <a class="gl-link" href="lost-password.html">Lost Your Password?</a></div>
+                                        </div>
+                                        <div class="u-s-m-b-30">
+
+                                            <!--====== Check Box ======-->
+                                            <div class="check-box">
+
+                                                <input type="checkbox" name="remember" id="remember">
+                                                <div class="check-box__state check-box__state--primary">
+
+                                                    <label class="check-box__label" for="remember">Remember Me</label></div>
+                                            </div>
+                                            <!--====== End - Check Box ======-->
+                                            @if (Route::has('password.request'))
+                                         <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                         </a>
+                                         @endif
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+            <!--====== End - Section Content ======-->
         </div>
-    </div>
+        <!--====== End - Section 2 ======-->
+    
 </div>
 @endsection

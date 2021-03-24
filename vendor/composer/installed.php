@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'cf9f1cc03b9fcedc2d3a85caa0b001da4ddc0ae2',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -429,6 +429,15 @@
         0 => '*',
       ),
     ),
+    'laravel/breeze' => 
+    array (
+      'pretty_version' => 'v1.1.4',
+      'version' => '1.1.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '36f678dc65bdb09b5dbbb46051ab07d1a6f19962',
+    ),
     'laravel/framework' => 
     array (
       'pretty_version' => 'v8.28.1',
@@ -440,12 +449,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'cf9f1cc03b9fcedc2d3a85caa0b001da4ddc0ae2',
     ),
     'laravel/sail' => 
     array (

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/home', [ProductController::class, 'index'])->name('home');
 Route::get('/about', function () {
     return view('about');
 })->name('about');
@@ -32,9 +35,8 @@ Route::get('/cart', function () {
 Route::get('/wishlist', function () {
     return view('wishlist');
 })->name('wish');
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+
+
 Route::get('/sign', function () {
     return view('sign');
 })->name('sign');
@@ -58,3 +60,10 @@ Route::get('/orders', function () {
 Route::get('/profile-edit', function () {
     return view('edit_account');
 })->name('edit_account');
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+Auth::routes();
+
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

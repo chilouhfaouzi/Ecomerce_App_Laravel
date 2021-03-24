@@ -118,7 +118,7 @@
                                                     >
                                                 </li>
                                                 <li>
-                                                    <a href="{{Route('sign')}}"
+                                                    <a href="{{Route('register')}}"
                                                         ><i
                                                             class="fas fa-user-plus u-s-m-r-6"
                                                         ></i>
@@ -296,6 +296,14 @@
                                                 >GIFT CARDS</a
                                             >
                                         </li>
+                                        @auth
+                                        <li>
+                                            <a href="{{Route('items_cats')}}"
+                                                >{{Auth::user()->email}}</a
+                                            >
+                                        </li>
+                                        @endauth
+                                        
                                     </ul>
                                     <!--====== End - List ======-->
                                 </div>

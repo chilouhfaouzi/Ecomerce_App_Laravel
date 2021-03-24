@@ -118,7 +118,7 @@
                                                     >
                                                 </li>
                                                 <li>
-                                                    <a href="<?php echo e(Route('sign')); ?>"
+                                                    <a href="<?php echo e(Route('register')); ?>"
                                                         ><i
                                                             class="fas fa-user-plus u-s-m-r-6"
                                                         ></i>
@@ -296,6 +296,14 @@
                                                 >GIFT CARDS</a
                                             >
                                         </li>
+                                        <?php if(auth()->guard()->check()): ?>
+                                        <li>
+                                            <a href="<?php echo e(Route('items_cats')); ?>"
+                                                ><?php echo e(Auth::user()->email); ?></a
+                                            >
+                                        </li>
+                                        <?php endif; ?>
+                                        
                                     </ul>
                                     <!--====== End - List ======-->
                                 </div>

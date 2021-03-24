@@ -42,7 +42,8 @@
                                     <h1 class="gl-h1">SIGNIN</h1>
 
                                     <span class="gl-text u-s-m-b-30">If you have an account with us, please log in.</span>
-                                    <form class="l-f-o__form">
+                                    <form method="POST" action="<?php echo e(route('login')); ?>" class="l-f-o__form">
+                                        <?php echo csrf_field(); ?>                                 
                                         <div class="gl-s-api">
                                             <div class="u-s-m-b-15">
 
@@ -59,13 +60,51 @@
 
                                             <label class="gl-label" for="login-email">E-MAIL *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="login-email" placeholder="Enter E-mail"></div>
-                                        <div class="u-s-m-b-30">
+                                            <input class="input-text input-text--primary-style <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" name="email" type="text" id="login-email" placeholder="Enter E-mail"></div>
+                                            <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong><?php echo e($message); ?></strong>
+                                            </span>
+                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                            <div class="u-s-m-b-30">
 
                                             <label class="gl-label" for="login-password">PASSWORD *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="login-password" placeholder="Enter Password"></div>
-                                        <div class="gl-inline">
+                                            <input class="input-text input-text--primary-style  <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" name="password" type="text" id="login-password" placeholder="Enter Password"></div>
+                                            <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong><?php echo e($message); ?></strong>
+                                            </span>
+                                           <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                            <div class="gl-inline">
                                             <div class="u-s-m-b-30">
 
                                                 <button class="btn btn--e-transparent-brand-b-2" type="submit">LOGIN</button></div>
@@ -78,12 +117,18 @@
                                             <!--====== Check Box ======-->
                                             <div class="check-box">
 
-                                                <input type="checkbox" id="remember-me">
+                                                <input type="checkbox" name="remember" id="remember">
                                                 <div class="check-box__state check-box__state--primary">
 
-                                                    <label class="check-box__label" for="remember-me">Remember Me</label></div>
+                                                    <label class="check-box__label" for="remember">Remember Me</label></div>
                                             </div>
                                             <!--====== End - Check Box ======-->
+                                            <?php if(Route::has('password.request')): ?>
+                                         <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
+                                            <?php echo e(__('Forgot Your Password?')); ?>
+
+                                         </a>
+                                         <?php endif; ?>
                                         </div>
                                     </form>
                                 </div>
