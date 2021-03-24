@@ -42,7 +42,7 @@ Route::get('/myaccount', function () {
     return view('myaccount');
 })->name('myaccount');
 Route::get('/items_cats', [CategoryProductController::class, 'index'])->name('items_cats');
-Route::post('/items_cats', [CategoryProductController::class, 'index_post'])->name('items_cats_post');
+Route::post('/items_cats', [CategoryProductController::class, 'index'])->name('items');
 Route::get('/product', function () {
     return view('product');
 })->name('product');

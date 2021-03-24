@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\ElseIf_;
 
 class CategoryProductController extends Controller
 {
@@ -19,22 +20,12 @@ class CategoryProductController extends Controller
             $category = Category::where('id', request()->id_cat)->get();
             $products =  Product::where('category_id', request()->id_cat)->take($limitt)->get();
             return view("items_cats")->with('products', $products)->with('cat', $category);
-        } else {
-            $products =  Product::take($limitt)->get();
+        } elseif (request()->search) {
+            $search = request()->search;
+            $products  = Product::query()
+                ->where('title', 'LIKE', "%{$search}%")
+                ->get();
             return view("items_cats")->with('products', $products);
-        }
-    }
-    public function index_post()
-    {
-        if (request()->show_numbers) {
-            $limitt = request()->show_numbers;
-        } else {
-            $limitt = 12;
-        }
-        if (request()->id_cat) {
-            $category = Category::where('id', request()->id_cat)->get();
-            $products =  Product::where('category_id', request()->id_cat)->take($limitt)->get();
-            return view("items_cats")->with('products', $products)->with('cat', $category);
         } else {
             $products =  Product::take($limitt)->get();
             return view("items_cats")->with('products', $products);
