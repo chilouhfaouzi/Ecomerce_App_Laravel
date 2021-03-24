@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -30,32 +31,40 @@ Route::get('/404', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::get('/cart', function () {
+
+/* ----Cart Rootes ---*/
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart-ajouter', [CartController::class, 'store'])->name('cart-store');
+Route::delete('/cartdelete/{rowId}', [CartController::class, 'destroy'])->name('cartdestroy');
+Route::get('/clearcart', function () {
+    Cart::destroy();
     return view('cart');
-})->name('cart');
-Route::get('/wishlist', function () {
-    return view('wishlist');
-})->name('wish');
+})->name('clearcart');
 
-
+/* ----- Authentification Roots -------*/
 Route::get('/sign', function () {
     return view('sign');
 })->name('sign');
-
-Route::get('/items_cats', [CategoryProductController::class, 'index'])->name('items_cats');
-Route::post('/items_cats', [CategoryProductController::class, 'index'])->name('items');
-Route::get('/product', function () {
-    return view('product');
-})->name('product');
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
 
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Auth::routes();
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+/* --- Products Roots --- */
+
+Route::get('/items_cats', [CategoryProductController::class, 'index'])->name('items_cats');
+Route::post('/items_cats', [CategoryProductController::class, 'index'])->name('items');
+
+Route::get('/product/{prd_id}', [ProductController::class, 'show'])->name('product');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
+
+
 
 Route::get('/checkout', function () {
     return view('checkout');
@@ -63,12 +72,13 @@ Route::get('/checkout', function () {
 Route::get('/orders', function () {
     return view('orders');
 })->name('orders');
+
+/*  ------- Account Rootes ----*/
 Route::get('/profile-edit', function () {
     return view('edit_account');
 })->middleware('auth')->name('edit_account');
-Route::post('/profile-edit', [AccountController::class, 'store'])->name('profile-edit');
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/profile-edit', [AccountController::class, 'store'])->name('profile-edit');
 
 Route::get('/myaccount', function () {
     return view('myaccount');

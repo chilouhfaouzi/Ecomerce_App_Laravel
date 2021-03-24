@@ -138,7 +138,7 @@
                              >
                                  <a
                                      class="aspect aspect--bg-grey aspect--square u-d-block"
-                                     href="{{Route('product')}}"
+                                     href="{{Route('product', $product->id)}}"
                                  >
                                      <img
                                          class="aspect__img"
@@ -164,28 +164,25 @@
                                              ></a>
                                          </li>
                                          <li>
+                                             <form action="{{Route('cart-store')}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$product->id}}">
+                                               
                                              <a
-                                                 data-modal="modal"
-                                                 data-modal-id="#add-to-cart"
-                                                 data-tooltip="tooltip"
-                                                 data-placement="top"
-                                                 title="Add to Cart"
-                                                 ><i
-                                                     class="fas fa-plus-circle"
-                                                 ></i
-                                             ></a>
+                                             data-modal="modal"
+                                             data-tooltip="tooltip"
+                                             data-placement="top"
+                                             title="Add to Cart"
+                                             class="add_to_cart_form"
+                                             onclick="$(this).closest('form').submit();"
+                                             ><i
+                                                 class="fas fa-plus-circle"
+                                             ></i
+                                         ></a>
+                                            </form>
+                                           
                                          </li>
-                                         <li>
-                                             <a
-                                                 href="signin.html"
-                                                 data-tooltip="tooltip"
-                                                 data-placement="top"
-                                                 title="Add to Wishlist"
-                                                 ><i
-                                                     class="fas fa-heart"
-                                                 ></i
-                                             ></a>
-                                         </li>
+                                       
                                         
                                      </ul>
                                  </div>
@@ -204,7 +201,7 @@
                                  class="product-o__name"
                              >
                                  <a
-                                     href="product-detail.html"
+                                     href="{{Route('product', $product->id)}}"
                                      >{{ $product->title }}</a
                                  ></span
                              >
@@ -406,23 +403,12 @@
                                                 >{{$product->description}}</span
                                             >
                                         </div>
-                                        <div class="u-s-m-b-15">
-                                            <div class="pd-detail__inline">
-                                                <span
-                                                    class="pd-detail__click-wrap"
-                                                    ><i
-                                                        class="far fa-heart u-s-m-r-6"
-                                                    ></i>
-
-                                                    <a href="signin.html"
-                                                        >Add to Wishlist</a
-                                                    >
-                                           
-                                            </div>
-                                        </div>
+                                       
 
                                         <div class="u-s-m-b-15">
-                                            <form class="pd-detail__form">
+                                            <form class="pd-detail__form" action="{{Route('cart-store')}}" method="POST">
+                                                
+                                                    @csrf
                                                 <div class="pd-detail-inline-2">
                                                     <div class="u-s-m-b-15">
                                                         <!--====== Input Counter ======-->
@@ -448,12 +434,20 @@
                                                         <!--====== End - Input Counter ======-->
                                                     </div>
                                                     <div class="u-s-m-b-15">
-                                                        <button
-                                                            class="btn btn--e-brand-b-2"
-                                                            type="submit"
-                                                        >
-                                                            Add to Cart
-                                                        </button>
+                                                        
+                                                            <input type="hidden" name="id" value="{{$product->id}}">
+                                                         <a
+                                                         data-modal="modal"
+                                                         data-tooltip="tooltip"
+                                                         data-placement="top"
+                                                         title="Add to Cart"
+                                                         class="btn btn--e-brand-b-2"
+                                                         onclick="$(this).closest('form').submit();"
+
+                                                         >
+                                                         Add to Cart
+                                                        </a>
+                                                        
                                                     </div>
                                                 </div>
                                             </form>
@@ -596,28 +590,24 @@
                                                 ></a>
                                             </li>
                                             <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
+                                                <form action="{{Route('cart-store')}}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$item->id}}">
+                                                   
+                                                 <a
+                                                 data-modal="modal"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Cart"
+                                                 class="add_to_cart_form"
+                                                 onclick="$(this).closest('form').submit();"
+                                                 ><i
+                                                     class="fas fa-plus-circle"
+                                                 ></i
+                                             ></a>
+                                                </form>
                                             </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
+                                           
                                             
                                         </ul>
                                     </div>
@@ -631,7 +621,7 @@
                                 >
 
                                 <span class="product-o__name">
-                                    <a href="product-detail.html"
+                                    <a   href="{{Route('product', $item->id)}}"
                                         >{{$item->title}}</a
                                     ></span
                                 >
@@ -728,28 +718,24 @@
                                                 ></a>
                                             </li>
                                             <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
+                                                <form action="{{Route('cart-store')}}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$offer->id}}">
+                                                   
+                                                 <a
+                                                 data-modal="modal"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Cart"
+                                                 class="add_to_cart_form"
+                                                 onclick="$(this).closest('form').submit();"
+                                                 ><i
+                                                     class="fas fa-plus-circle"
+                                                 ></i
+                                             ></a>
+                                                </form>
                                             </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
+                                           
                                           
                                         </ul>
                                     </div>
@@ -762,7 +748,7 @@
                                 >
 
                                 <span class="product-o__name">
-                                    <a href="product-detail.html"
+                                    <a   href="{{Route('product', $offer->id)}}"
                                         >{{$offer->title}}</a
                                     ></span
                                 >

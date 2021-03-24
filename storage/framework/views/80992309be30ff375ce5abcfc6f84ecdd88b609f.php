@@ -136,7 +136,7 @@
                              >
                                  <a
                                      class="aspect aspect--bg-grey aspect--square u-d-block"
-                                     href="<?php echo e(Route('product')); ?>"
+                                     href="<?php echo e(Route('product', $product->id)); ?>"
                                  >
                                      <img
                                          class="aspect__img"
@@ -162,28 +162,25 @@
                                              ></a>
                                          </li>
                                          <li>
+                                             <form action="<?php echo e(Route('cart-store')); ?>" method="POST">
+                                                <?php echo csrf_field(); ?>
+                                                <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
+                                               
                                              <a
-                                                 data-modal="modal"
-                                                 data-modal-id="#add-to-cart"
-                                                 data-tooltip="tooltip"
-                                                 data-placement="top"
-                                                 title="Add to Cart"
-                                                 ><i
-                                                     class="fas fa-plus-circle"
-                                                 ></i
-                                             ></a>
+                                             data-modal="modal"
+                                             data-tooltip="tooltip"
+                                             data-placement="top"
+                                             title="Add to Cart"
+                                             class="add_to_cart_form"
+                                             onclick="$(this).closest('form').submit();"
+                                             ><i
+                                                 class="fas fa-plus-circle"
+                                             ></i
+                                         ></a>
+                                            </form>
+                                           
                                          </li>
-                                         <li>
-                                             <a
-                                                 href="signin.html"
-                                                 data-tooltip="tooltip"
-                                                 data-placement="top"
-                                                 title="Add to Wishlist"
-                                                 ><i
-                                                     class="fas fa-heart"
-                                                 ></i
-                                             ></a>
-                                         </li>
+                                       
                                         
                                      </ul>
                                  </div>
@@ -202,7 +199,7 @@
                                  class="product-o__name"
                              >
                                  <a
-                                     href="product-detail.html"
+                                     href="<?php echo e(Route('product', $product->id)); ?>"
                                      ><?php echo e($product->title); ?></a
                                  ></span
                              >
@@ -404,23 +401,12 @@
                                                 ><?php echo e($product->description); ?></span
                                             >
                                         </div>
-                                        <div class="u-s-m-b-15">
-                                            <div class="pd-detail__inline">
-                                                <span
-                                                    class="pd-detail__click-wrap"
-                                                    ><i
-                                                        class="far fa-heart u-s-m-r-6"
-                                                    ></i>
-
-                                                    <a href="signin.html"
-                                                        >Add to Wishlist</a
-                                                    >
-                                           
-                                            </div>
-                                        </div>
+                                       
 
                                         <div class="u-s-m-b-15">
-                                            <form class="pd-detail__form">
+                                            <form class="pd-detail__form" action="<?php echo e(Route('cart-store')); ?>" method="POST">
+                                                
+                                                    <?php echo csrf_field(); ?>
                                                 <div class="pd-detail-inline-2">
                                                     <div class="u-s-m-b-15">
                                                         <!--====== Input Counter ======-->
@@ -446,12 +432,20 @@
                                                         <!--====== End - Input Counter ======-->
                                                     </div>
                                                     <div class="u-s-m-b-15">
-                                                        <button
-                                                            class="btn btn--e-brand-b-2"
-                                                            type="submit"
-                                                        >
-                                                            Add to Cart
-                                                        </button>
+                                                        
+                                                            <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
+                                                         <a
+                                                         data-modal="modal"
+                                                         data-tooltip="tooltip"
+                                                         data-placement="top"
+                                                         title="Add to Cart"
+                                                         class="btn btn--e-brand-b-2"
+                                                         onclick="$(this).closest('form').submit();"
+
+                                                         >
+                                                         Add to Cart
+                                                        </a>
+                                                        
                                                     </div>
                                                 </div>
                                             </form>
@@ -594,28 +588,24 @@
                                                 ></a>
                                             </li>
                                             <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
+                                                <form action="<?php echo e(Route('cart-store')); ?>" method="POST">
+                                                    <?php echo csrf_field(); ?>
+                                                    <input type="hidden" name="id" value="<?php echo e($item->id); ?>">
+                                                   
+                                                 <a
+                                                 data-modal="modal"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Cart"
+                                                 class="add_to_cart_form"
+                                                 onclick="$(this).closest('form').submit();"
+                                                 ><i
+                                                     class="fas fa-plus-circle"
+                                                 ></i
+                                             ></a>
+                                                </form>
                                             </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
+                                           
                                             
                                         </ul>
                                     </div>
@@ -629,7 +619,7 @@
                                 >
 
                                 <span class="product-o__name">
-                                    <a href="product-detail.html"
+                                    <a   href="<?php echo e(Route('product', $item->id)); ?>"
                                         ><?php echo e($item->title); ?></a
                                     ></span
                                 >
@@ -727,28 +717,24 @@
                                                 ></a>
                                             </li>
                                             <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#add-to-cart"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Cart"
-                                                    ><i
-                                                        class="fas fa-plus-circle"
-                                                    ></i
-                                                ></a>
+                                                <form action="<?php echo e(Route('cart-store')); ?>" method="POST">
+                                                    <?php echo csrf_field(); ?>
+                                                    <input type="hidden" name="id" value="<?php echo e($offer->id); ?>">
+                                                   
+                                                 <a
+                                                 data-modal="modal"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Cart"
+                                                 class="add_to_cart_form"
+                                                 onclick="$(this).closest('form').submit();"
+                                                 ><i
+                                                     class="fas fa-plus-circle"
+                                                 ></i
+                                             ></a>
+                                                </form>
                                             </li>
-                                            <li>
-                                                <a
-                                                    href="signin.html"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Add to Wishlist"
-                                                    ><i
-                                                        class="fas fa-heart"
-                                                    ></i
-                                                ></a>
-                                            </li>
+                                           
                                           
                                         </ul>
                                     </div>
@@ -761,7 +747,7 @@
                                 >
 
                                 <span class="product-o__name">
-                                    <a href="product-detail.html"
+                                    <a   href="<?php echo e(Route('product', $offer->id)); ?>"
                                         ><?php echo e($offer->title); ?></a
                                     ></span
                                 >

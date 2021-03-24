@@ -23,4 +23,12 @@ class ProductController extends Controller
             ->with('best_offers', $best_offers)
             ->with('last_added', $last_added);
     }
+
+    public function show($prd_id)
+    {
+        $product = Product::where('id', $prd_id)->first();
+        $also_viewd = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->inRandomOrder()->take(12)->get();
+
+        return view('product')->with('product', $product)->with('also_viewd', $also_viewd);
+    }
 }
