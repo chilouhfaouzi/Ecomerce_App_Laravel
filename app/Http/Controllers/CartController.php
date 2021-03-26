@@ -37,6 +37,12 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        if (isset($request->qntty)) {
+
+            $quantity = intval($request->qntty);
+        } else {
+            $quantity = 1;
+        }
         $product = Product::find($request->id);
         $remove_double = Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id == $request->id;
@@ -45,7 +51,7 @@ class CartController extends Controller
         if ($remove_double->isNotEmpty()) {
             return back()->withInput();
         } else {
-            Cart::add($product->id, $product->title, 1, $product->price)->associate(Product::class);
+            Cart::add($product->id, $product->title, $quantity, $product->price)->associate(Product::class);
             return redirect()->route('cart')->with('success', 'Product successfully added to your cart');
         }
     }

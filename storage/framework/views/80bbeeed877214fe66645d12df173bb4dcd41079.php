@@ -32,9 +32,7 @@
                                             <li>
 
                                                 <a href="<?php echo e(Route('orders')); ?>">My Orders</a></li>
-                                            <li>
-
-                                                <a href="dash-payment-option.html">My Payment Options</a></li>
+                                
                                          
                                         </ul>
                                     </div>
@@ -47,7 +45,7 @@
 
                                                     <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
 
-                                                    <span class="dash__w-text">4</span>
+                                                    <span class="dash__w-text"><?php echo e(getOrdersCount(Auth::user()->id)); ?></span>
 
                                                     <span class="dash__w-name">Orders Placed</span></div>
                                             </li>
@@ -57,9 +55,9 @@
 
                                                     <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
 
-                                                    <span class="dash__w-text">0</span>
+                                                    <span class="dash__w-text"><?php echo e(Cart::count()); ?></span>
 
-                                                    <span class="dash__w-name">Wishlist</span></div>
+                                                    <span class="dash__w-name">Cart</span></div>
                                             </li>
                                         </ul>
                                     </div>
@@ -101,7 +99,7 @@
 
                                                         <span class="dash__text"><?php echo e(Auth::user()->lines); ?> <?php echo e(Auth::user()->city); ?> - <?php echo e(Auth::user()->zip_code); ?> - <?php echo e(Auth::user()->country); ?></span>
 
-                                                        <span class="dash__text">(+0) 900901904</span>
+                                                        <span class="dash__text"><?php echo e(Auth::user()->tel); ?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,78 +120,28 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $__currentLoopData = $last_orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
-                                                    <td>3054231326</td>
-                                                    <td>26/13/2016</td>
+                                                    <td><?php echo e($order->id); ?></td>
+                                                    <td><?php echo e($order->order_date); ?></td>
                                                     <td>
                                                         <div class="dash__table-img-wrap">
-
-                                                            <img class="u-img-fluid" src="images/product/electronic/product3.jpg" alt=""></div>
+                                                 
+                                                            <img class="u-img-fluid" style="height: 100%" src="<?php echo e(getProduct($order->product_id)->image); ?>" alt="">
+                                                                         
+                                                            </div>
                                                     </td>
                                                     <td>
                                                         <div class="dash__table-total">
 
-                                                            <span>$126.00</span>
-                                                            <div class="dash__link dash__link--brand">
-
-                                                                <a href="dash-manage-order.html">MANAGE</a></div>
+                                                            <span class="font-weight-bold"><?php echo e(getPrice((getProduct($order->product_id)->price) * $order->qntty)); ?></span>
+                                                          
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>3054231326</td>
-                                                    <td>26/13/2016</td>
-                                                    <td>
-                                                        <div class="dash__table-img-wrap">
-
-                                                            <img class="u-img-fluid" src="images/product/electronic/product14.jpg" alt=""></div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dash__table-total">
-
-                                                            <span>$126.00</span>
-                                                            <div class="dash__link dash__link--brand">
-
-                                                                <a href="dash-manage-order.html">MANAGE</a></div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3054231326</td>
-                                                    <td>26/13/2016</td>
-                                                    <td>
-                                                        <div class="dash__table-img-wrap">
-
-                                                            <img class="u-img-fluid" src="images/product/men/product8.jpg" alt=""></div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dash__table-total">
-
-                                                            <span>$126.00</span>
-                                                            <div class="dash__link dash__link--brand">
-
-                                                                <a href="dash-manage-order.html">MANAGE</a></div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3054231326</td>
-                                                    <td>26/13/2016</td>
-                                                    <td>
-                                                        <div class="dash__table-img-wrap">
-
-                                                            <img class="u-img-fluid" src="images/product/women/product10.jpg" alt=""></div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dash__table-total">
-
-                                                            <span>$126.00</span>
-                                                            <div class="dash__link dash__link--brand">
-
-                                                                <a href="dash-manage-order.html">MANAGE</a></div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                             
+                                               
                                             </tbody>
                                         </table>
                                     </div>

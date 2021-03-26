@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CategoryProductController;
-use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +24,21 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/home', [ProductController::class, 'index'])->name('home');
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-Route::get('/404', function () {
-    return view('404');
-})->name('404');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+
+
+/* ----- Authentification Roots -------*/
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
+
+Auth::routes();
+
 
 /* ----Cart Rootes ---*/
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
@@ -41,16 +49,6 @@ Route::get('/clearcart', function () {
     return view('cart');
 })->name('clearcart');
 
-/* ----- Authentification Roots -------*/
-Route::get('/sign', function () {
-    return view('sign');
-})->name('sign');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /* --- Products Roots --- */
 
@@ -59,27 +57,45 @@ Route::post('/items_cats', [CategoryProductController::class, 'index'])->name('i
 
 Route::get('/product/{prd_id}', [ProductController::class, 'show'])->name('product');
 
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
+
+/*------ Checkout Rootes ----*/
 
 
+Route::get('/checkout', [PaymentController::class, 'index'])->middleware('auth')->name('checkout');
+Route::post('/checkout', [PaymentController::class, 'index'])->middleware('auth')->name('checkout');
+
+Route::post('/transaction', [PaymentController::class, 'makePayment'])->middleware('auth')->name('make-payment');
 
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
-Route::get('/orders', function () {
-    return view('orders');
-})->name('orders');
 
 /*  ------- Account Rootes ----*/
 Route::get('/profile-edit', function () {
     return view('edit_account');
 })->middleware('auth')->name('edit_account');
 
-Route::post('/profile-edit', [AccountController::class, 'store'])->name('profile-edit');
+Route::post('/profile-edit', [AccountController::class, 'store'])->middleware('auth')->name('profile-edit');
 
-Route::get('/myaccount', function () {
-    return view('myaccount');
-})->middleware('auth')->name('myaccount');
+Route::get('/myaccount', [AccountController::class, 'index'])->middleware('auth')->name('myaccount');
+
+Route::get('/orders', [AccountController::class, 'showOrders'])->middleware('auth')->name('orders');
+
+
+
+/*-----help routes ----*/
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+Route::get('/404', function () {
+    return view('404');
+})->name('404');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
+Route::fallback(function () {
+
+    return view("404");
+});

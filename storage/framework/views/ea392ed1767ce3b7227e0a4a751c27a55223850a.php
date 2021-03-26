@@ -2,7 +2,8 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container">
-
+    <?php $__env->startSection('brodcump'); ?>
+    <?php $__env->stopSection(); ?>
         <!--====== Section 1 ======-->
         <div class="u-s-p-y-60">
 

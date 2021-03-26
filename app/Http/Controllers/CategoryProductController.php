@@ -26,6 +26,11 @@ class CategoryProductController extends Controller
                 ->where('title', 'LIKE', "%{$search}%")
                 ->get();
             return view("items_cats")->with('products', $products);
+        } elseif (request()->best_offers) {
+            $products =   Product::where('best_offers', 1)->inRandomOrder()
+                ->take($limitt)
+                ->get();
+            return view("items_cats")->with('products', $products);
         } else {
             $products =  Product::take($limitt)->get();
             return view("items_cats")->with('products', $products);

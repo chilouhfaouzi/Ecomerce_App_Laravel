@@ -15,6 +15,7 @@
         <title>
             Bouki Store
         </title>
+        <?php echo $__env->yieldContent('extra-script'); ?>
 
         <!--====== Google Font ======-->
         <link
@@ -114,7 +115,15 @@
                                                             class="fas fa-user-circle u-s-m-r-6"
                                                         ></i>
 
-                                                        <span>Account</span></a
+                                                        <span>
+                                                            <?php if(auth()->guard()->check()): ?>
+                                                             <?php echo e(explode(" ",Auth::user()->name)[0]); ?>
+
+                                                            <?php endif; ?>
+                                                            <?php if(auth()->guard()->guest()): ?>
+                                                                Account
+                                                            <?php endif; ?>
+                                                        </span></a
                                                     >
                                                 </li>
                                                 <?php if(auth()->guard()->guest()): ?>
@@ -166,7 +175,7 @@
                                             data-placement="left"
                                             title="Contact"
                                         >
-                                            <a href="tel:+0900901904"
+                                            <a href="tel:+212706363231"
                                                 ><i
                                                     class="fas fa-phone-volume"
                                                 ></i
@@ -177,7 +186,7 @@
                                             data-placement="left"
                                             title="Mail"
                                         >
-                                            <a href="mailto:contact@domain.com"
+                                            <a href="mailto:ensah@gmail.com"
                                                 ><i class="far fa-envelope"></i
                                             ></a>
                                         </li>
@@ -301,18 +310,12 @@
                                         </li>                                    
                                         
                                         <li>
-                                            <a href="<?php echo e(Route('items_cats')); ?>"
-                                                >GIFT CARDS</a
+                                            <a   href="<?php echo e(Route('items_cats',
+                                            ['best_offers' =>1
+                                            ])); ?>"
+                                                >BEST OFFERS</a
                                             >
-                                        </li>
-                                        <?php if(auth()->guard()->check()): ?>
-                                        <li>
-                                            <a href="<?php echo e(Route('items_cats')); ?>"
-                                                ><?php echo e(Auth::user()->email); ?></a
-                                            >
-                                        </li>
-                                        <?php endif; ?>
-                                        
+                                        </li>                                                                          
                                     </ul>
                                     <!--====== End - List ======-->
                                 </div>
@@ -371,6 +374,15 @@
                 </nav>
                 <!--====== End - Nav 2 ======-->
             </header>
+
+            <!-- Start Payment success -->
+            <?php if(Session::has('success')): ?>
+            <div class="alert alert-primary text-center">
+                <p><?php echo e(Session::get('success')); ?></p>
+            </div>
+            <?php endif; ?>
+            <!-- End Payment success -->
+
             <!--====== End - Main Header ======-->
             <?php $__env->startSection('brodcump'); ?>
          <!--====== Section 1 ======-->
@@ -419,19 +431,19 @@
                                         <i class="fas fa-home"></i>
 
                                         <span
-                                            >4247 Ashford Drive Virginia
-                                            VA-20006 USA</span
+                                            >N28 Centre Ait Yossaf Imzouren
+                                            62550 MAROC</span
                                         >
                                     </div>
                                     <div class="outer-footer__text-wrap">
                                         <i class="fas fa-phone-volume"></i>
 
-                                        <span>(+0) 900 901 904</span>
+                                        <span>(+212) 706 1 234</span>
                                     </div>
                                     <div class="outer-footer__text-wrap">
                                         <i class="far fa-envelope"></i>
 
-                                        <span>contact@domain.com</span>
+                                        <span>Ensah@gmail.com</span>
                                     </div>
                                     <div class="outer-footer__social">
                                         <ul>
@@ -614,6 +626,8 @@
         <!--====== End - Main App ======-->
 
         <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+
+        <?php echo $__env->yieldContent('extra-js'); ?>
         <script>
             window.ga = function () {
                 ga.q.push(arguments);
@@ -636,10 +650,7 @@
   
      	<!-- Popper JS -->
     	<script src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
-        <?php $__env->startSection('special_script'); ?>
- 
-        <?php echo $__env->yieldSection(); ?>
-  
+       
      	<!-- Bootstrap JS -->
     	<script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
         <!--====== jQuery Shopnav plugin ======-->
@@ -647,6 +658,7 @@
 
         <!--====== App ======-->
         <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/my_script.js')); ?>"></script>
 
         <!--====== Noscript ======-->
         <noscript>

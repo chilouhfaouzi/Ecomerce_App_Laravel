@@ -29,9 +29,7 @@
                                            
                                            
                                             <li>
-                                                <a href="dash-my-order.html">My Orders</a></li>
-
-                                        
+                                                <a href="<?php echo e(Route('orders')); ?>" >My Orders</a></li>                                       
                                         </ul>
                                     </div>
                                 </div>
@@ -43,7 +41,7 @@
 
                                                     <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
 
-                                                    <span class="dash__w-text">4</span>
+                                                    <span class="dash__w-text"><?php echo e(getOrdersCount(Auth::user()->id)); ?></span>
 
                                                     <span class="dash__w-name">Orders Placed</span></div>
                                             </li>                                         
@@ -52,9 +50,9 @@
 
                                                     <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
 
-                                                    <span class="dash__w-text">0</span>
+                                                    <span class="dash__w-text"><?php echo e(Cart::count()); ?></span>
 
-                                                    <span class="dash__w-name">Wishlist</span></div>
+                                                    <span class="dash__w-name">Cart</span></div>
                                             </li>
                                         </ul>
                                     </div>
@@ -101,16 +99,22 @@
                                                             <label class="gl-label" for="city">CITY *</label>
 
                                                             <input class="input-text input-text--primary-style" type="text" id="city" name="city" value="<?php echo e(Auth::user()->city); ?>"  placeholder="ex:Al-Hoceima"></div>
+                                                        <div class="u-s-m-b-30">
+
+                                                                <label class="gl-label" for="country">COUNTRY *</label>
+    
+                                                                <input class="input-text input-text--primary-style" type="text" id="country" name="country" value="<?php echo e(Auth::user()->country); ?>" placeholder="ex: Morocco"></div>
                                                         
                                                     </div>
                                                     <div class="gl-inline">
+                                                       
                                                         <div class="u-s-m-b-30">
-
-                                                            <label class="gl-label" for="country">COUNTRY *</label>
-
-                                                            <input class="input-text input-text--primary-style" type="text" id="country" name="country" value="<?php echo e(Auth::user()->country); ?>" placeholder="ex: Morocco"></div>
+                                                            <label class="gl-label" for="password">PASSWORD </label>
+                                                            <input class="input-text input-text--primary-style" type="password" id="passsord" name="password" placeholder="Change password">
+                                                            
+                                                        </div>
                                                         <div class="u-s-m-b-30">
-                                                            <label class="gl-label" for="email">PHONE *</label>
+                                                            <label class="gl-label" for="phone">PHONE *</label>
                                                             <input class="input-text input-text--primary-style" type="text" id="phone" name="phone" value="<?php echo e(Auth::user()->tel); ?>" placeholder="ex : +212 706465821">
                                                             
                                                         </div>

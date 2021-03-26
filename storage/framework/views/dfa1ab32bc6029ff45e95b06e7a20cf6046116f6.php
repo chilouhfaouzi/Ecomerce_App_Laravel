@@ -88,23 +88,39 @@
                                     <div class="product-m">
                                         <div class="product-m__thumb">
 
-                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+                                            <a class="aspect aspect--bg-grey aspect--square u-d-block" href="<?php echo e(Route('product', $product->id)); ?>">
 
                                                 <img class="aspect__img" src="<?php echo e($product->image); ?>" alt=""></a>
                                             <div class="product-m__quick-look">
 
                                                 <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a></div>
                                             <div class="product-m__add-cart">
+                                                <form action="<?php echo e(Route('cart-store')); ?>" method="POST">
+                                                    <?php echo csrf_field(); ?>
+                                                    <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
+                                                   
+                                                 <a
+                                                 data-modal="modal"
+                                                 data-tooltip="tooltip"
+                                                 data-placement="top"
+                                                 title="Add to Cart"
+                                                 
+                                                 class="btn--e-brand"
+                                                 onclick="$(this).closest('form').submit();"
+                                                 >Add to Cart</a>
+                                                </form>
+                                                
 
-                                                <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a></div>
+                                                </div>
                                         </div>
                                         <div class="product-m__content">
                                             <div class="product-m__category">
 
                                                 <a href="shop-side-version-2.html"><?php echo e($product->Category->name); ?></a></div>
                                             <div class="product-m__name">
-
-                                                <a href="product-detail.html"><?php echo e($product->title); ?></a></div>
+                                                
+                                                <a href="<?php echo e(Route('product', $product->id)); ?>"
+                                                    ><?php echo e($product->title); ?></a></div>
                                             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
 
                                                 </div>
@@ -283,24 +299,13 @@
                                                 ><?php echo e($product->description); ?></span
                                             >
                                         </div>
-                                        <div class="u-s-m-b-15">
-                                            <div class="pd-detail__inline">
-                                                <span
-                                                    class="pd-detail__click-wrap"
-                                                    ><i
-                                                        class="far fa-heart u-s-m-r-6"
-                                                    ></i>
-
-                                                    <a href="signin.html"
-                                                        >Add to Wishlist</a
-                                                    >
-                                           
-                                            </div>
-                                        </div>
+                                      
 
                                         <div class="u-s-m-b-15">
-                                            <form class="pd-detail__form">
-                                                <div class="pd-detail-inline-2">
+                                            <form class="pd-detail__form" action="<?php echo e(Route('cart-store')); ?>" method="POST">
+                                                
+                                                <?php echo csrf_field(); ?>                                               
+                                            <div class="pd-detail-inline-2">
                                                     <div class="u-s-m-b-15">
                                                         <!--====== Input Counter ======-->
                                                         <div
@@ -325,12 +330,16 @@
                                                         <!--====== End - Input Counter ======-->
                                                     </div>
                                                     <div class="u-s-m-b-15">
-                                                        <button
+                                                        <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
+
+                                                        <a
                                                             class="btn btn--e-brand-b-2"
-                                                            type="submit"
+                                                            title="Add to Cart"
+
+                                                            onclick="$(this).closest('form').submit();"
                                                         >
                                                             Add to Cart
-                                                        </button>
+                                                    </a>
                                                     </div>
                                                 </div>
                                             </form>

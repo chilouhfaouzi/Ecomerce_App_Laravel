@@ -41,7 +41,7 @@
 
                                                     <span class="dash__w-icon dash__w-icon-style-1"><i class="fas fa-cart-arrow-down"></i></span>
 
-                                                    <span class="dash__w-text">4</span>
+                                                    <span class="dash__w-text">{{ getOrdersCount(Auth::user()->id)}}</span>
 
                                                     <span class="dash__w-name">Orders Placed</span></div>
                                             </li>                                          
@@ -50,9 +50,9 @@
 
                                                     <span class="dash__w-icon dash__w-icon-style-3"><i class="far fa-heart"></i></span>
 
-                                                    <span class="dash__w-text">0</span>
+                                                    <span class="dash__w-text">{{Cart::count()}}</span>
 
-                                                    <span class="dash__w-name">Wishlist</span></div>
+                                                    <span class="dash__w-name">Cart</span></div>
                                             </li>
                                         </ul>
                                     </div>
@@ -68,19 +68,32 @@
                                         <form class="m-order u-s-m-b-30">
                                             <div class="m-order__select-wrapper">
 
-                                                <label class="u-s-m-r-8" for="my-order-sort">Show:</label><select class="select-box select-box--primary-style" id="my-order-sort">
-                                                    <option selected>Last 5 orders</option>
-                                                    <option>Last 10 orders</option>                                                  
-                                                    <option>All Orders</option>
+                                                <label class="u-s-m-r-8" for="my-order-sort">Show:</label><select name="show_numbers" onchange="this.form.submit()" class="select-box select-box--primary-style" id="my-order-sort">
+                                                    <option @if($orders->count() <= 5)
+                                                        selected
+                                                        @endif
+                                                        value="5">Last 5 orders</option>
+                                                    <option @if($orders->count() <= 10  && $orders->count() > 5)
+                                                        selected
+                                                        @endif
+                                                        value="10">Last 10 orders</option>                                                  
+                                                    <option @if($orders->count() > 10)
+                                                        selected
+                                                        @endif
+                                                        value="12">All Orders</option>
                                                 </select></div>
                                         </form>
                                         <div class="m-order__list">
+                                            @foreach ($orders as $order)
                                             <div class="m-order__get">
                                                 <div class="manage-o__header u-s-m-b-30">
                                                     <div class="dash-l-r">
                                                         <div>
-                                                            <div class="manage-o__text-2 u-c-secondary">Order #305423126</div>
-                                                            <div class="manage-o__text u-c-silver">Placed on 26 Oct 2016 09:08:37</div>
+                                                            <div class="manage-o__text-2 u-c-secondary">Order #{{$order->id}}</div>
+                                                            <div class="manage-o__text u-c-silver">Placed on  {{($order->created_at)->format('d M Y H:i:s')}}
+                                                               
+                                                                
+                                                            </div>
                                                         </div>
                                                      
                                                     </div>
@@ -89,93 +102,31 @@
                                                     <div class="description__container">
                                                         <div class="description__img-wrap">
 
-                                                            <img class="u-img-fluid" src="images/product/electronic/product3.jpg" alt=""></div>
-                                                        <div class="description-title">Yellow Wireless Headphone</div>
+                                                            <img class="u-img-fluid" style="height: 100%" src="{{getProduct($order->product_id)->image}}" alt=""></div>
+                                                        <div class="description-title">{{getProduct($order->product_id)->title}}</div>
                                                     </div>
                                                     <div class="description__info-wrap">
                                                         <div>
 
-                                                            <span class="manage-o__badge badge--processing">Processing</span></div>
-                                                        <div>
-
-                                                            <span class="manage-o__text-2 u-c-silver">Quantity:
-
-                                                                <span class="manage-o__text-2 u-c-secondary">1</span></span></div>
-                                                        <div>
-
-                                                            <span class="manage-o__text-2 u-c-silver">Total:
-
-                                                                <span class="manage-o__text-2 u-c-secondary">$16.00</span></span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="m-order__get">
-                                                <div class="manage-o__header u-s-m-b-30">
-                                                    <div class="dash-l-r">
-                                                        <div>
-                                                            <div class="manage-o__text-2 u-c-secondary">Order #305423126</div>
-                                                            <div class="manage-o__text u-c-silver">Placed on 26 Oct 2016 09:08:37</div>
+                                                            {{ compareDate($order->order_date)}}    
+                                                                                                                       
                                                         </div>
-                                                       
-                                                    </div>
-                                                </div>
-                                                <div class="manage-o__description">
-                                                    <div class="description__container">
-                                                        <div class="description__img-wrap">
-
-                                                            <img class="u-img-fluid" src="images/product/women/product8.jpg" alt=""></div>
-                                                        <div class="description-title">New Dress D Nice Elegant</div>
-                                                    </div>
-                                                    <div class="description__info-wrap">
-                                                        <div>
-
-                                                            <span class="manage-o__badge badge--shipped">Shipped</span></div>
                                                         <div>
 
                                                             <span class="manage-o__text-2 u-c-silver">Quantity:
 
-                                                                <span class="manage-o__text-2 u-c-secondary">1</span></span></div>
+                                                                <span class="manage-o__text-2 u-c-secondary">{{$order->qntty}}</span></span></div>
                                                         <div>
 
                                                             <span class="manage-o__text-2 u-c-silver">Total:
 
-                                                                <span class="manage-o__text-2 u-c-secondary">$16.00</span></span></div>
+                                                                <span class="manage-o__text-2 u-c-secondary">{{ getPrice((getProduct($order->product_id)->price) * $order->qntty) }}</span></span></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="m-order__get">
-                                                <div class="manage-o__header u-s-m-b-30">
-                                                    <div class="dash-l-r">
-                                                        <div>
-                                                            <div class="manage-o__text-2 u-c-secondary">Order #305423126</div>
-                                                            <div class="manage-o__text u-c-silver">Placed on 26 Oct 2016 09:08:37</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="manage-o__description">
-                                                    <div class="description__container">
-                                                        <div class="description__img-wrap">
-
-                                                            <img class="u-img-fluid" src="images/product/men/product8.jpg" alt=""></div>
-                                                        <div class="description-title">New Fashion D Nice Elegant</div>
-                                                    </div>
-                                                    <div class="description__info-wrap">
-                                                        <div>
-
-                                                            <span class="manage-o__badge badge--delivered">Delivered</span></div>
-                                                        <div>
-
-                                                            <span class="manage-o__text-2 u-c-silver">Quantity:
-
-                                                                <span class="manage-o__text-2 u-c-secondary">1</span></span></div>
-                                                        <div>
-
-                                                            <span class="manage-o__text-2 u-c-silver">Total:
-
-                                                                <span class="manage-o__text-2 u-c-secondary">$16.00</span></span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
+                                            @endforeach
+                                         
                                         </div>
                                     </div>
                                 </div>

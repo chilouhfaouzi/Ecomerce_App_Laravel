@@ -15,6 +15,7 @@
         <title>
             Bouki Store
         </title>
+        @yield('extra-script')
 
         <!--====== Google Font ======-->
         <link
@@ -114,7 +115,14 @@
                                                             class="fas fa-user-circle u-s-m-r-6"
                                                         ></i>
 
-                                                        <span>Account</span></a
+                                                        <span>
+                                                            @auth
+                                                             {{explode(" ",Auth::user()->name)[0]}}
+                                                            @endauth
+                                                            @guest
+                                                                Account
+                                                            @endguest
+                                                        </span></a
                                                     >
                                                 </li>
                                                 @guest
@@ -166,7 +174,7 @@
                                             data-placement="left"
                                             title="Contact"
                                         >
-                                            <a href="tel:+0900901904"
+                                            <a href="tel:+212706363231"
                                                 ><i
                                                     class="fas fa-phone-volume"
                                                 ></i
@@ -177,7 +185,7 @@
                                             data-placement="left"
                                             title="Mail"
                                         >
-                                            <a href="mailto:contact@domain.com"
+                                            <a href="mailto:ensah@gmail.com"
                                                 ><i class="far fa-envelope"></i
                                             ></a>
                                         </li>
@@ -301,18 +309,12 @@
                                         </li>                                    
                                         
                                         <li>
-                                            <a href="{{Route('items_cats')}}"
-                                                >GIFT CARDS</a
+                                            <a   href="{{Route('items_cats',
+                                            ['best_offers' =>1
+                                            ])}}"
+                                                >BEST OFFERS</a
                                             >
-                                        </li>
-                                        @auth
-                                        <li>
-                                            <a href="{{Route('items_cats')}}"
-                                                >{{Auth::user()->email}}</a
-                                            >
-                                        </li>
-                                        @endauth
-                                        
+                                        </li>                                                                          
                                     </ul>
                                     <!--====== End - List ======-->
                                 </div>
@@ -371,6 +373,15 @@
                 </nav>
                 <!--====== End - Nav 2 ======-->
             </header>
+
+            <!-- Start Payment success -->
+            @if (Session::has('success'))
+            <div class="alert alert-primary text-center">
+                <p>{{ Session::get('success') }}</p>
+            </div>
+            @endif
+            <!-- End Payment success -->
+
             <!--====== End - Main Header ======-->
             @section('brodcump')
          <!--====== Section 1 ======-->
@@ -419,19 +430,19 @@
                                         <i class="fas fa-home"></i>
 
                                         <span
-                                            >4247 Ashford Drive Virginia
-                                            VA-20006 USA</span
+                                            >N28 Centre Ait Yossaf Imzouren
+                                            62550 MAROC</span
                                         >
                                     </div>
                                     <div class="outer-footer__text-wrap">
                                         <i class="fas fa-phone-volume"></i>
 
-                                        <span>(+0) 900 901 904</span>
+                                        <span>(+212) 706 1 234</span>
                                     </div>
                                     <div class="outer-footer__text-wrap">
                                         <i class="far fa-envelope"></i>
 
-                                        <span>contact@domain.com</span>
+                                        <span>Ensah@gmail.com</span>
                                     </div>
                                     <div class="outer-footer__social">
                                         <ul>
@@ -614,6 +625,8 @@
         <!--====== End - Main App ======-->
 
         <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+
+        @yield('extra-js')
         <script>
             window.ga = function () {
                 ga.q.push(arguments);
@@ -636,10 +649,7 @@
   
      	<!-- Popper JS -->
     	<script src="{{ asset('js/popper.min.js') }}"></script>
-        @section('special_script')
- 
-        @show
-  
+       
      	<!-- Bootstrap JS -->
     	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <!--====== jQuery Shopnav plugin ======-->
@@ -647,6 +657,7 @@
 
         <!--====== App ======-->
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/my_script.js') }}"></script>
 
         <!--====== Noscript ======-->
         <noscript>

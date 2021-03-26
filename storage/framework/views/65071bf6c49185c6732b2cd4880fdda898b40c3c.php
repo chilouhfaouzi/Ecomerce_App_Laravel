@@ -1,4 +1,9 @@
 
+<?php $__env->startSection('extra-script'); ?>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
 <div class="container">
@@ -22,12 +27,12 @@
 
                                                 <label class="gl-label" for="billing-fname">FIRST NAME *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-fname" data-bill=""></div>
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-fname" data-bill="" value="<?php echo e(explode(" ",Auth::user()->name)[0]); ?>" readonly></div>
                                             <div class="u-s-m-b-15">
 
                                                 <label class="gl-label" for="billing-lname">LAST NAME *</label>
 
-                                                <input class="input-text input-text--primary-style" type="text" id="billing-lname" data-bill=""></div>
+                                                <input class="input-text input-text--primary-style" type="text" id="billing-lname" data-bill="" value="<?php echo e(explode(" ",Auth::user()->name)[1]); ?>" readonly></div>
                                         </div>
                                         <!--====== End - First Name, Last Name ======-->
 
@@ -37,7 +42,7 @@
 
                                             <label class="gl-label" for="billing-email">E-MAIL *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="billing-email" data-bill=""></div>
+                                            <input class="input-text input-text--primary-style" type="text" id="billing-email" data-bill="" value="<?php echo e(Auth::user()->email); ?>"></div>
                                         <!--====== End - E-MAIL ======-->
 
 
@@ -46,7 +51,7 @@
 
                                             <label class="gl-label" for="billing-phone">PHONE *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="billing-phone" data-bill=""></div>
+                                            <input class="input-text input-text--primary-style" type="text" id="billing-phone" data-bill="" value="<?php echo e(Auth::user()->tel); ?>"></div>
                                         <!--====== End - PHONE ======-->
 
 
@@ -55,12 +60,8 @@
 
                                             <label class="gl-label" for="billing-street">STREET ADDRESS *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="billing-street" placeholder="House name and street name" data-bill=""></div>
-                                        <div class="u-s-m-b-15">
-
-                                            <label for="billing-street-optional"></label>
-
-                                            <input class="input-text input-text--primary-style" type="text" id="billing-street-optional" placeholder="Apartment, suite unit etc. (optional)" data-bill=""></div>
+                                            <input class="input-text input-text--primary-style" type="text" id="billing-street" placeholder="House name and street name" data-bill="" value="<?php echo e(Auth::user()->lines); ?>"></div>
+                         
                                         <!--====== End - Street Address ======-->
 
 
@@ -69,12 +70,9 @@
 
                                             <!--====== Select Box ======-->
 
-                                            <label class="gl-label" for="billing-country">COUNTRY *</label><select class="select-box select-box--primary-style" id="billing-country" data-bill="">
-                                                <option selected value="">Choose Country</option>
-                                                <option value="uae">Morrocco (MA)</option>
-                                                <option value="uk">France (FR)</option>
-                                                <option value="us">United States (US)</option>
-                                            </select>
+                                            <label class="gl-label" for="billing-country">COUNTRY *</label>
+                                            
+                                            <input class="input-text input-text--primary-style" type="text" id="country" data-bill="" value="<?php echo e(Auth::user()->country); ?>">
                                             <!--====== End - Select Box ======-->
                                         </div>
                                         <!--====== End - Country ======-->
@@ -85,7 +83,7 @@
 
                                             <label class="gl-label" for="billing-town-city">CITY *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="billing-town-city" data-bill=""></div>
+                                            <input class="input-text input-text--primary-style" type="text" id="billing-town-city" data-bill="" value="<?php echo e(Auth::user()->city); ?>"></div>
                                         <!--====== End - Town / City ======-->
 
                                         <!--====== ZIP/POSTAL ======-->
@@ -93,7 +91,7 @@
 
                                             <label class="gl-label" for="billing-zip">ZIP/POSTAL CODE *</label>
 
-                                            <input class="input-text input-text--primary-style" type="text" id="billing-zip" placeholder="Zip/Postal Code" data-bill=""></div>
+                                            <input class="input-text input-text--primary-style" type="text" id="billing-zip" placeholder="Zip/Postal Code" data-bill="" value="<?php echo e(Auth::user()->zip_code); ?>"></div>
                                         <!--====== End - ZIP/POSTAL ======-->
 
                                         <div>
@@ -109,78 +107,30 @@
                                 <div class="o-summary">
                                     <div class="o-summary__section u-s-m-b-30">
                                         <div class="o-summary__item-wrap gl-scroll">
+                                            <?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product_cart): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class="o-card">
                                                 <div class="o-card__flex">
                                                     <div class="o-card__img-wrap">
 
-                                                        <img class="u-img-fluid" src="images/product/electronic/product3.jpg" alt=""></div>
+                                                        <img class="u-img-fluid" style="height: 100%" src="<?php echo e($product_cart->model->image); ?>" alt=""></div>
                                                     <div class="o-card__info-wrap">
 
                                                         <span class="o-card__name">
 
-                                                            <a href="product-detail.html">Yellow Wireless Headphone</a></span>
+                                                            <a href="product-detail.html"><?php echo e($product_cart->model->title); ?></a></span>
 
-                                                        <span class="o-card__quantity">Quantity x 1</span>
+                                                        <span class="o-card__quantity">Quantity x <?php echo e($product_cart->qty); ?></span>
 
-                                                        <span class="o-card__price">$150.00</span></div>
+                                                        <span class="o-card__price"><?php echo e(getPrice($product_cart->model->price)); ?></span></div>
                                                 </div>
-
-                                                <a class="o-card__del far fa-trash-alt"></a>
-                                            </div>
-                                            <div class="o-card">
-                                                <div class="o-card__flex">
-                                                    <div class="o-card__img-wrap">
-
-                                                        <img class="u-img-fluid" src="images/product/electronic/product18.jpg" alt=""></div>
-                                                    <div class="o-card__info-wrap">
-
-                                                        <span class="o-card__name">
-
-                                                            <a href="product-detail.html">Nikon DSLR Camera 4k</a></span>
-
-                                                        <span class="o-card__quantity">Quantity x 1</span>
-
-                                                        <span class="o-card__price">$150.00</span></div>
-                                                </div>
-
-                                                <a class="o-card__del far fa-trash-alt"></a>
-                                            </div>
-                                            <div class="o-card">
-                                                <div class="o-card__flex">
-                                                    <div class="o-card__img-wrap">
-
-                                                        <img class="u-img-fluid" src="images/product/women/product8.jpg" alt=""></div>
-                                                    <div class="o-card__info-wrap">
-
-                                                        <span class="o-card__name">
-
-                                                            <a href="product-detail.html">New Dress D Nice Elegant</a></span>
-
-                                                        <span class="o-card__quantity">Quantity x 1</span>
-
-                                                        <span class="o-card__price">$150.00</span></div>
-                                                </div>
-
-                                                <a class="o-card__del far fa-trash-alt"></a>
-                                            </div>
-                                            <div class="o-card">
-                                                <div class="o-card__flex">
-                                                    <div class="o-card__img-wrap">
-
-                                                        <img class="u-img-fluid" src="images/product/men/product8.jpg" alt=""></div>
-                                                    <div class="o-card__info-wrap">
-
-                                                        <span class="o-card__name">
-
-                                                            <a href="product-detail.html">New Fashion D Nice Elegant</a></span>
-
-                                                        <span class="o-card__quantity">Quantity x 1</span>
-
-                                                        <span class="o-card__price">$150.00</span></div>
-                                                </div>
-
-                                                <a class="o-card__del far fa-trash-alt"></a>
-                                            </div>
+                                                <form action="<?php echo e(Route('cartdestroy',$product_cart->rowId)); ?>" method="POST">
+                                                    <?php echo csrf_field(); ?>
+                                                    <?php echo method_field('DELETE'); ?>
+                                                <a class="o-card__del far fa-trash-alt"   onclick="$(this).closest('form').submit();"></a>
+                                               </form>
+                                            </div>  
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                            
                                         </div>
                                     </div>
                                     <div class="o-summary__section u-s-m-b-30">
@@ -190,7 +140,7 @@
 
                                                 <span class="ship-b__text">Ship to:</span>
                                                 <div class="ship-b__box u-s-m-b-10">
-                                                    <p class="ship-b__p">4247 Ashford Drive Virginia VA-20006 USA (+0) 900901904</p>
+                                                    <p class="ship-b__p"><?php echo e(Auth::user()->lines); ?> <?php echo e(Auth::user()->zip_code); ?> <?php echo e(Auth::user()->country); ?> <?php echo e(Auth::user()->tel); ?></p>
 
                                                 </div>
                                               
@@ -203,89 +153,83 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>SHIPPING</td>
-                                                        <td>$4.00</td>
+                                                        <td>FREE</td>
                                                     </tr>
                                                     <tr>
                                                         <td>TAX</td>
-                                                        <td>$0.00</td>
+                                                        <td><?php echo e(getPrice(Cart::tax())); ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>SUBTOTAL</td>
-                                                        <td>$379.00</td>
+                                                        <td><?php echo e(getPrice(Cart::subtotal())); ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>GRAND TOTAL</td>
-                                                        <td>$379.00</td>
+                                                        <td><?php echo e(getPrice(Cart::total())); ?></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="o-summary__section u-s-m-b-30">
-                                        <div class="o-summary__box">
-                                            <h1 class="checkout-f__h1">PAYMENT INFORMATION</h1>
-                                            <form class="checkout-f__payment">
-                                                <div class="u-s-m-b-10">
-
-                                                    <!--====== Radio Box ======-->
-                                                    <div class="radio-box">
-
-                                                        <input type="radio" id="cash-on-delivery" name="payment">
-                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                            <label class="radio-box__label" for="cash-on-delivery">Cash on Delivery</label></div>
+                                        <div class="o-summary__box" style="font-size: 14px">
+                                            <h2 class="checkout-f__h1">PAYMENT INFORMATION</h2>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                                                                                                    
+                                                            <form role="form" action="<?php echo e(route('make-payment')); ?>" method="post" class="stripe-payment pay_form"
+                                                                data-cc-on-file="false" data-stripe-publishable-key="<?php echo e(env('STRIPE_KEY')); ?>"
+                                                                id="stripe-payment">
+                                                                <?php echo csrf_field(); ?>
+                                          
+                                                                <div class='form-row row'>
+                                                                    <div class='col-xs-12 form-group required'>
+                                                                        <label class='control-label'>Name on Card</label> <input class='input-text input-text--primary-style'
+                                                                            size='4' type='text' placeholder='Full Name '>
+                                                                    </div>
+                                                                </div>
+                                          
+                                                                <div class='form-row row'>
+                                                                    <div class='col-xs-12 form-group card required'>
+                                                                        <label class='control-label'>Card Number</label> <input 
+                                                                            class='input-text input-text--primary-style card-num' maxlength="19" type='text' placeholder="ex: 4242 4242 4242 4242">
+                                                                    </div>
+                                                                </div>
+                                          
+                                                                <div class='form-row row'>
+                                                                    <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                                                        <label class='control-label'>CVC</label>
+                                                                        <input autocomplete='off' class='input-text input-text--primary-style card-cvc' placeholder='e.g 595'
+                                                                        maxlength="3" type='text'>
+                                                                    </div>
+                                                                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                                        <label class='control-label'>Expiration Month</label> <input
+                                                                            class='input-text input-text--primary-style card-expiry-month' placeholder='MM' size='2' maxlength="2" type='text'>
+                                                                    </div>
+                                                                    <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                                                        <label class='control-label'>Expiration Year</label> <input
+                                                                            class='input-text input-text--primary-style card-expiry-year' placeholder='YYYY' size='4' maxlength="4" type='text'>
+                                                                    </div>
+                                                                </div>
+                                          
+                                                                <div class='form-row row'>
+                                                                    <div class='col-md-12 hide error form-group'>
+                                                                        <div class='alert-danger alert'>Fix the errors before you begin.</div>
+                                                                    </div>
+                                                                </div>
+                                          
+                                                                <div class="row mx-auto mt-4">
+                                                                    <button class="btn btn-md btn-block btn_pay"  type="submit">Pay (<?php echo e(getPrice(Cart::total())); ?>)</button>
+                                                                </div>
+                                          
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <!--====== End - Radio Box ======-->
-
-                                                    <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery. (This service is only available for some countries)</span>
                                                 </div>
+                                            </div>
 
-                                                <div class="u-s-m-b-10">
-
-                                                    <!--====== Radio Box ======-->
-                                                    <div class="radio-box">
-
-                                                        <input type="radio" id="pay-with-card" name="payment">
-                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                            <label class="radio-box__label" for="pay-with-card">Pay With Credit / Debit Card</label></div>
-                                                    </div>
-                                                    <!--====== End - Radio Box ======-->
-
-                                                    <span class="gl-text u-s-m-t-6">International Credit Cards must be eligible for use within the United States.</span>
-                                                </div>
-                                                <div class="u-s-m-b-10">
-
-                                                    <!--====== Radio Box ======-->
-                                                    <div class="radio-box">
-
-                                                        <input type="radio" id="pay-pal" name="payment">
-                                                        <div class="radio-box__state radio-box__state--primary">
-
-                                                            <label class="radio-box__label" for="pay-pal">Pay Pal</label></div>
-                                                    </div>
-                                                    <!--====== End - Radio Box ======-->
-
-                                                    <span class="gl-text u-s-m-t-6">When you click "Place Order" below we'll take you to Paypal's site to set up your billing information.</span>
-                                                </div>
-                                                <div class="u-s-m-b-15">
-
-                                                    <!--====== Check Box ======-->
-                                                    <div class="check-box">
-
-                                                        <input type="checkbox" id="term-and-condition">
-                                                        <div class="check-box__state check-box__state--primary">
-
-                                                            <label class="check-box__label" for="term-and-condition">I consent to the</label></div>
-                                                    </div>
-                                                    <!--====== End - Check Box ======-->
-
-                                                    <a class="gl-link">Terms of Service.</a>
-                                                </div>
-                                                <div>
-
-                                                    <button class="btn btn--e-brand-b-2" type="submit">PLACE ORDER</button></div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -302,5 +246,69 @@
 
 </div>
 <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('extra-js'); ?>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var $form = $(".stripe-payment");
+        $('form.stripe-payment').bind('submit', function (e) {
+            var $form = $(".stripe-payment"),
+                inputVal = ['input[type=email]', 'input[type=password]',
+                    'input[type=text]', 'input[type=file]',
+                    'textarea'
+                ].join(', '),
+                $inputs = $form.find('.required').find(inputVal),
+                $errorStatus = $form.find('div.error'),
+                valid = true;
+            $errorStatus.addClass('hide');
+
+            $('.has-error').removeClass('has-error');
+            $inputs.each(function (i, el) {
+                var $input = $(el);
+                if ($input.val() === '') {
+                    $input.parent().addClass('has-error');
+                    $errorStatus.removeClass('hide');
+                    e.preventDefault();
+                }
+            });
+
+            if (!$form.data('cc-on-file')) {
+                e.preventDefault();
+                Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                Stripe.createToken({
+                    number: $('.card-num').val(),
+                    cvc: $('.card-cvc').val(),
+                    exp_month: $('.card-expiry-month').val(),
+                    exp_year: $('.card-expiry-year').val()
+                }, stripeRes);
+            }
+
+        });
+
+        function stripeRes(status, response) {
+            if (response.error) {
+                $('.error')
+                    .removeClass('hide')
+                    .find('.alert')
+                    .text(response.error.message);
+            } else {
+                var token = response['id'];
+                $form.find('input[type=text]').empty();
+                $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                $form.get(0).submit();
+            }
+        }
+
+    });
+
+</script>
+
+
+<?php $__env->stopSection(); ?>
+
+
 
 <?php echo $__env->make('layouts.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Fawzi\Desktop\laravel_ecomerce_prj\resources\views/checkout.blade.php ENDPATH**/ ?>

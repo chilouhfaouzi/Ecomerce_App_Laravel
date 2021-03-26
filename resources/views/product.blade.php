@@ -28,12 +28,12 @@
 
 
                         <!--====== Product Detail Zoom ======-->
-                        <div class="pd u-s-m-b-30">
-                            <div class="slider-fouc pd-wrap">
+                        <div class="pd u-s-m-b-30"  style="height: 90%;margin-bottom:0">
+                            <div class="slider-fouc pd-wrap" style="height: 100%">
                                 <div id="pd-o-initiate">
                                     <div class="pd-o-img-wrap" data-src="{{$product->image}}">
 
-                                        <img class="u-img-fluid" src="{{$product->image}}" data-zoom-image="{{$product->image}}" alt=""></div>               
+                                        <img style="height: 100%" class="u-img-fluid" src="{{$product->image}}" data-zoom-image="{{$product->image}}" alt=""></div>               
                                 </div>
 
                                 <span class="pd-text">Click for larger zoom</span>

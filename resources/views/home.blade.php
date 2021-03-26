@@ -269,85 +269,26 @@
                                     <!--====== End - Product Breadcrumb ======-->
 
                                     <!--====== Product Detail ======-->
-                                    <div class="pd u-s-m-b-30">
-                                        <div class="pd-wrap">
-                                            <div id="js-product-detail-modal">
-                                                <div>
+                                    <div class="pd u-s-m-b-30" style="margin-bottom: 0 !important;height: 80%;">
+                                        <div class="pd-wrap" style="height: 100%">
+                                            <div id="js-product-detail-modal" style="height: 100%">
+                                                <div  style="height: 100%">
                                                     <img
+                                                    style="height: 100%"
                                                         class="u-img-fluid"
                                                         src="{{$product->image}}"
                                                         alt=""
                                                     />
                                                 </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-2.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-3.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-4.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-5.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                         <div class="u-s-m-t-15">
                                             <div
                                                 id="js-product-detail-modal-thumbnail"
                                             >
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-1.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-2.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-3.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-4.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <img
-                                                        class="u-img-fluid"
-                                                        src="images/product/product-d-5.jpg"
-                                                        alt=""
-                                                    />
-                                                </div>
+                                               
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -425,6 +366,7 @@
                                                                 value="1"
                                                                 data-min="1"
                                                                 data-max="1000"
+                                                                name="qntty"
                                                             />
 
                                                             <span
@@ -592,8 +534,7 @@
                                             <li>
                                                 <form action="{{Route('cart-store')}}" method="POST">
                                                     @csrf
-                                                    <input type="hidden" name="id" value="{{$item->id}}">
-                                                   
+                                                    <input type="hidden" name="id" value="{{$item->id}}">                                                  
                                                  <a
                                                  data-modal="modal"
                                                  data-tooltip="tooltip"
