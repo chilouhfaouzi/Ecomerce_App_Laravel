@@ -117,7 +117,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstr
 
                                                         <span class="o-card__name">
 
-                                                            <a href="{{Route('product', $product->id)}}">{{$product_cart->model->title}}</a></span>
+                                                            <a href="{{Route('product', $product_cart->model->id)}}">{{$product_cart->model->title}}</a></span>
 
                                                         <span class="o-card__quantity">Quantity x {{$product_cart->qty}}</span>
 

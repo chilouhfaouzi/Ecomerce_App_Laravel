@@ -7,6 +7,7 @@ use Stripe\Charge;
 
 use Stripe\Stripe;
 use App\Models\Order;
+use App\Models\Product;
 use Stripe\PaymentIntent;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -48,6 +49,11 @@ class PaymentController extends Controller
             $order->qntty = $product_order->qty;
             $order->order_date  = (new DateTime())->setTimestamp($paymentinfo['created'])->format('Y-m-d');
             $order->save();
+        }
+        foreach (Cart::content() as $product_order) {
+            $product  = Product::find($product_order->id);
+            $product->quantity =  $product->quantity - $product_order->qty;
+            $product->save();
         }
 
         Session::flash('success', 'Payment successfully made.');

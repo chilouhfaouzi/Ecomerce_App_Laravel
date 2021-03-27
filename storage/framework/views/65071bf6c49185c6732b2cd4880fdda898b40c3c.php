@@ -117,7 +117,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstr
 
                                                         <span class="o-card__name">
 
-                                                            <a href="product-detail.html"><?php echo e($product_cart->model->title); ?></a></span>
+                                                            <a href="<?php echo e(Route('product', $product_cart->model->id)); ?>"><?php echo e($product_cart->model->title); ?></a></span>
 
                                                         <span class="o-card__quantity">Quantity x <?php echo e($product_cart->qty); ?></span>
 

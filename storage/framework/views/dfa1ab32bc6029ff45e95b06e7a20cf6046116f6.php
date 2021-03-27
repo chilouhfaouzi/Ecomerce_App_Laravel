@@ -68,11 +68,23 @@
                                                 <?php endif; ?>
                                                 value="24">Show: 24</option>
                                             </select></div>
-                                        <div class="u-s-m-b-8"><select class="select-box select-box--transparent-b-2">
-                                                <option selected>Sort By: Newest Items</option>
-                                                <option>Sort By: Latest Items</option>                                              
-                                                <option>Sort By: Lowest Price</option>
-                                                <option>Sort By: Highest Price</option>
+                                        <div class="u-s-m-b-8"><select name="sort_by" onchange="this.form.submit()" class="select-box select-box--transparent-b-2">
+                                                <option 
+                                                <?php if($slc == 1 ): ?>
+                                                selected
+                                                <?php endif; ?>
+                                               
+                                                value="new">Sort By: Newest Items</option>
+                                                <option 
+                                                <?php if($slc == 2 ): ?>
+                                                selected
+                                                <?php endif; ?>
+                                                value="cheap">Sort By: Lowest Price</option>
+                                                <option 
+                                                <?php if($slc == 3 ): ?>
+                                                selected
+                                                <?php endif; ?>
+                                                value="expensive">Sort By: Highest Price</option>
                                             </select></div>
                                     </div>
                                 </form>

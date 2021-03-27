@@ -53,7 +53,7 @@
                             <!--====== Main Logo ======-->
 
                             <a class="main-logo" href="<?php echo e(Route('home')); ?>">
-                                <img src="images/logo/logo-1.png" alt=""
+                                <img src="images/logo/boukishopc.png" alt=""
                             /></a>
                             <!--====== End - Main Logo ======-->
 

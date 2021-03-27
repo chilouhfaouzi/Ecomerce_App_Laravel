@@ -68,11 +68,23 @@
                                                 @endif
                                                 value="24">Show: 24</option>
                                             </select></div>
-                                        <div class="u-s-m-b-8"><select class="select-box select-box--transparent-b-2">
-                                                <option selected>Sort By: Newest Items</option>
-                                                <option>Sort By: Latest Items</option>                                              
-                                                <option>Sort By: Lowest Price</option>
-                                                <option>Sort By: Highest Price</option>
+                                        <div class="u-s-m-b-8"><select name="sort_by" onchange="this.form.submit()" class="select-box select-box--transparent-b-2">
+                                                <option 
+                                                @if ($slc == 1 )
+                                                selected
+                                                @endif
+                                               
+                                                value="new">Sort By: Newest Items</option>
+                                                <option 
+                                                @if ($slc == 2 )
+                                                selected
+                                                @endif
+                                                value="cheap">Sort By: Lowest Price</option>
+                                                <option 
+                                                @if ($slc == 3 )
+                                                selected
+                                                @endif
+                                                value="expensive">Sort By: Highest Price</option>
                                             </select></div>
                                     </div>
                                 </form>

@@ -48,7 +48,7 @@ class CartController extends Controller
             return $cartItem->id == $request->id;
         });
 
-        if ($remove_double->isNotEmpty()) {
+        if ($remove_double->isNotEmpty() || $quantity > $product->quantity) {
             return back()->withInput();
         } else {
             Cart::add($product->id, $product->title, $quantity, $product->price)->associate(Product::class);
