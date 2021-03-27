@@ -59,20 +59,18 @@
                             <div>
                                 <div class="pd-detail__inline">
 
-                                    <span class="pd-detail__price">${{$product->price}}.99</span>
+                                    <span class="pd-detail__price">{{getPrice($product->price)}}</span>
 
-                                    <span class="pd-detail__discount">(76% OFF)</span><del class="pd-detail__del">$28.97</del></div>
+                                    <span class="pd-detail__discount">(20% OFF)</span><del class="pd-detail__del">{{getPrice($product->last_price)}}</del></div>
                             </div>
                             <div class="u-s-m-b-15">
                                 <div class="pd-detail__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                                 </div>
                             </div>
                             <div class="u-s-m-b-15">
-                                <div class="pd-detail__inline">
-
-                                    <span class="pd-detail__stock">200 in stock</span>
-
-                                    <span class="pd-detail__left">Only 2 left</span></div>
+                                <div class="pd-detail__inline">                                   
+                                    {{checkquantity($product->quantity)}}
+                                    </div>
                             </div>
                             <div class="u-s-m-b-15">
 
@@ -80,7 +78,8 @@
             
                            
                             <div class="u-s-m-b-15">
-                                <form class="pd-detail__form">
+                                    <form class="pd-detail__form" action="{{Route('cart-store')}}" method="POST">                                           
+                                        @csrf
                                     <div class="pd-detail-inline-2">
                                         <div class="u-s-m-b-15">
 
@@ -95,8 +94,20 @@
                                             <!--====== End - Input Counter ======-->
                                         </div>
                                         <div class="u-s-m-b-15">
+                                            <input type="hidden" name="id" value="{{$product->id}}">
 
-                                            <button class="btn btn--e-brand-b-2" type="submit">Add to Cart</button></div>
+                                            <a
+                                            data-modal="modal"
+                                            data-tooltip="tooltip"
+                                            data-placement="top"
+                                            title="Add to Cart"
+                                            class="btn btn--e-brand-b-2"
+                                            onclick="$(this).closest('form').submit();"
+
+                                            >
+                                            Add to Cart
+                                           </a>                                    
+                                            </div>
                                     </div>
                                 </form>
                             </div>
@@ -152,17 +163,32 @@
                                 <div class="product-o product-o--hover-on">
                                     <div class="product-o__wrap">
 
-                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="{{Route('product', $product->id)}}">
 
                                             <img class="aspect__img" src="{{$item->image}}" alt=""></a>
                                         <div class="product-o__action-wrap">
                                             <ul class="product-o__action-list">
                                                 <li>
 
-                                                    <a data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick View"><i class="fas fa-search-plus"></i></a></li>
+                                                    <a href="{{Route('product', $item->id)}}" data-tooltip="tooltip" data-placement="top" title="View"><i class="fas fa-search-plus"></i></a></li>
                                                 <li>
 
-                                                    <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a></li>
+                                                    <form action="{{Route('cart-store')}}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{$item->id}}">                                                  
+                                                     <a
+                                                     data-modal="modal"
+                                                     data-tooltip="tooltip"
+                                                     data-placement="top"
+                                                     title="Add to Cart"
+                                                     class="add_to_cart_form"
+                                                     onclick="$(this).closest('form').submit();"
+                                                     ><i
+                                                         class="fas fa-plus-circle"
+                                                     ></i
+                                                 ></a>
+                                                    </form>
+                                                </li>
                                                
                                             </ul>
                                         </div>
@@ -170,7 +196,9 @@
 
                                     <span class="product-o__category">
 
-                                        <a href="shop-side-version-2.html">{{$item->Category->name}}</a></span>
+                                        <a href="{{Route('items_cats',
+                                        ['id_cat' =>$item->Category->id
+                                        ])}}">{{$item->Category->name}}</a></span>
 
                                     <span class="product-o__name">
 
@@ -179,9 +207,9 @@
 
                                        </div>
 
-                                    <span class="product-o__price">${{$item->price}}.00
+                                    <span class="product-o__price">{{getPrice($item->price)}}
 
-                                        <span class="product-o__discount">$160.00</span></span>
+                                        <span class="product-o__discount">{{getPrice($item->last_price)}}</span></span>
                                 </div>
                             </div>
                          

@@ -47,11 +47,13 @@
 
                                                         <span class="table-p__name">
 
-                                                            <a href="product-detail.html">{{$cart_product->model->title}}</a></span>
+                                                            <a href="{{Route('product', $cart_product->model->id)}}">{{$cart_product->model->title}}</a></span>
 
                                                         <span class="table-p__category">
 
-                                                            <a href="shop-side-version-2.html">{{$cart_product->model->Category->name}}</a></span>
+                                                            <a  href="{{Route('items_cats',
+                                                            ['id_cat' =>$cart_product->model->Category->id
+                                                            ])}}">{{$cart_product->model->Category->name}}</a></span>
                                                       
                                                     </div>
                                                 </div>

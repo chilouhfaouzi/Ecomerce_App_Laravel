@@ -21,8 +21,9 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('image', 50);
             $table->integer('price');
+            $table->integer('last_price');
             $table->integer('solds');
-
+            $table->integer('quantity')->default(10);
             $table->smallInteger('best_offers');
             $table->timestamps();
         });

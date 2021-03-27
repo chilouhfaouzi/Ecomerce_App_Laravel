@@ -24,16 +24,27 @@ function getOrdersCount($id_user)
 
 function compareDate($date_order)
 {
-    $today = date('y-m-d');
-    $dateShipping = date('y-m-d', strtotime('+1 day', strtotime($date_order)));
-    $dateDelevring = date('y-m-d', strtotime('+7 day', strtotime($date_order)));
-
+    $today = date('Y-m-d');
+    $dateShipping = date('Y-m-d', strtotime('+1 days', strtotime($date_order)));
+    $dateDelevring = date('Y-m-d', strtotime('+1 week', strtotime($date_order)));
+    //  dd($date_order . " | " . $dateShipping . " | " . $dateDelevring);
     if ($today < $dateShipping) {
         $html_to_return = '&lt;span class=&quot;manage-o__badge badge--processing&quot;&gt;Processing&lt;/span&gt;';
-    } else if ($today > $dateShipping && $today < $dateDelevring) {
+    } else if ($today < $dateDelevring) {
         $html_to_return = '&lt;span class=&quot;manage-o__badge badge--shipped&quot;&gt;Shipped&lt;/span&gt;';
     } else {
         $html_to_return =  '&lt;span class=&quot;manage-o__badge badge--delivered&quot;&gt;Delivered&lt;/span&gt;';
+    }
+    echo html_entity_decode($html_to_return);
+}
+
+
+function checkquantity($qnty)
+{
+    if ($qnty < 5) {
+        $html_to_return = '&lt;span class=&quot;pd-detail__left&quot;&gt;Only ' . $qnty . ' left&lt;/span&gt;';
+    } else {
+        $html_to_return = '&lt;span class=&quot;pd-detail__stock&quot;&gt;' . $qnty . ' in stock&lt;/span&gt;';
     }
     echo html_entity_decode($html_to_return);
 }

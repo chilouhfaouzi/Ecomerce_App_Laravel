@@ -24,13 +24,17 @@ class ProductFactory extends Factory
     {
         $my_faker = $this->faker;
         $catsid =  Category::where('id', '>', 0)->pluck('id');
+        $price =  $my_faker->numberBetween($min = 500, $max = 9000);
+        $last_price = $price + round($price * 0.2);
         return [
             'title' =>  $my_faker->sentence(4),
             'description' =>  $my_faker->text(),
             'category_id' =>  $my_faker->randomElement($array =  $catsid),
-            'image' => $my_faker->imageUrl($width = 640, $height = 480),
-            'price' => $my_faker->randomNumber($nbDigits = 2, $strict = false),
+            'image' => "https://loremflickr.com/640/360",
+            'price' => $price,
+            'last_price' =>  $last_price,
             'solds' => $my_faker->numberBetween($min = 0, $max = 15),
+            'quantity' => $my_faker->numberBetween($min = 3, $max = 30),
             'best_offers' => $my_faker->randomElement($array = array('0', '1'))
         ];
     }

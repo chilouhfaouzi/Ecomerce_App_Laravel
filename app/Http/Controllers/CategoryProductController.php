@@ -18,21 +18,20 @@ class CategoryProductController extends Controller
         }
         if (request()->id_cat) {
             $category = Category::where('id', request()->id_cat)->get();
-            $products =  Product::where('category_id', request()->id_cat)->take($limitt)->get();
+            $products =  Product::where('category_id', request()->id_cat)->paginate($limitt);
             return view("items_cats")->with('products', $products)->with('cat', $category);
         } elseif (request()->search) {
             $search = request()->search;
             $products  = Product::query()
                 ->where('title', 'LIKE', "%{$search}%")
-                ->get();
+                ->paginate($limitt);
             return view("items_cats")->with('products', $products);
         } elseif (request()->best_offers) {
             $products =   Product::where('best_offers', 1)->inRandomOrder()
-                ->take($limitt)
-                ->get();
+                ->paginate($limitt);
             return view("items_cats")->with('products', $products);
         } else {
-            $products =  Product::take($limitt)->get();
+            $products =  Product::take($limitt)->paginate($limitt);
             return view("items_cats")->with('products', $products);
         }
     }

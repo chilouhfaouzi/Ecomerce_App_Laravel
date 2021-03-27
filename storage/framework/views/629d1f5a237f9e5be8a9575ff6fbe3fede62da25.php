@@ -23,7 +23,6 @@
             rel="stylesheet"
         />
 
-        
 		<!-- Bootstrap -->
 	<link rel="stylesheet" href="<?php echo e(asset('css/bootstrap.css')); ?>">
 <!--====== Vendor Css ======-->
@@ -511,15 +510,15 @@
                                             >
                                                 <ul>
                                                     <li>
-                                                        <a href="<?php echo e(Route('cart')); ?>"
-                                                            >Cart</a
-                                                        >
-                                                    </li>
-                                                    <li>
                                                         <a href="<?php echo e(Route('myaccount')); ?>"
                                                             >Account</a
                                                         >
-                                                    </li>                                                   
+                                                    </li> 
+                                                    <li>
+                                                        <a href="<?php echo e(Route('cart')); ?>"
+                                                            >Cart</a
+                                                        >
+                                                    </li>                                                                                                   
                                                     <li>
                                                         <a
                                                             href="<?php echo e(Route('items_cats')); ?>"
@@ -579,9 +578,9 @@
                             <div class="col-lg-12">
                                 <div class="lower-footer__content">
                                     <div class="lower-footer__copyright">
-                                        <span>Copyright © 2018</span>
+                                        <span>Copyright © 2021</span>
 
-                                        <a href="index.html">Reshop</a>
+                                        <a href="<?php echo e(Route('home')); ?>">BoukiShop</a>
 
                                         <span>All Right Reserved</span>
                                     </div>

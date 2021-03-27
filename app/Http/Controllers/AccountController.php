@@ -14,8 +14,8 @@ class AccountController extends Controller
 
     public function index()
     {
-        $orders = Order::where('user_id', Auth::user()->id)->orderby('created_at')->get();
-        $last_orders = Order::where('user_id', Auth::user()->id)->orderby('created_at')->take(5)->get();
+        $orders = Order::where('user_id', Auth::user()->id)->latest()->get();
+        $last_orders = Order::where('user_id', Auth::user()->id)->latest()->take(5)->get();
         return view('myaccount')->with('orders', $orders)->with('last_orders', $last_orders);
     }
 
@@ -26,7 +26,7 @@ class AccountController extends Controller
         } else {
             $limitt = 5;
         }
-        $orders = Order::where('user_id', Auth::user()->id)->orderby('created_at')->take($limitt)->get();
+        $orders = Order::where('user_id', Auth::user()->id)->latest()->take($limitt)->get();
         return view('orders')->with('orders', $orders);
     }
 

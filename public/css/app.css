@@ -2275,12 +2275,12 @@ input::-ms-clear {
     font-size: 13px;
 }
 
-#quick-look .modal-dialog {
+.quick-look .modal-dialog {
     width: 100%;
     max-width: 991px;
 }
 
-#quick-look .modal-body {
+.quick-look .modal-body {
     padding: 1.875rem;
 }
 

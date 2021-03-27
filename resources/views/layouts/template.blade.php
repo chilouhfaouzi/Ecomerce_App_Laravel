@@ -23,7 +23,6 @@
             rel="stylesheet"
         />
 
-        
 		<!-- Bootstrap -->
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <!--====== Vendor Css ======-->
@@ -510,15 +509,15 @@
                                             >
                                                 <ul>
                                                     <li>
-                                                        <a href="{{Route('cart')}}"
-                                                            >Cart</a
-                                                        >
-                                                    </li>
-                                                    <li>
                                                         <a href="{{Route('myaccount')}}"
                                                             >Account</a
                                                         >
-                                                    </li>                                                   
+                                                    </li> 
+                                                    <li>
+                                                        <a href="{{Route('cart')}}"
+                                                            >Cart</a
+                                                        >
+                                                    </li>                                                                                                   
                                                     <li>
                                                         <a
                                                             href="{{Route('items_cats')}}"
@@ -578,9 +577,9 @@
                             <div class="col-lg-12">
                                 <div class="lower-footer__content">
                                     <div class="lower-footer__copyright">
-                                        <span>Copyright © 2018</span>
+                                        <span>Copyright © 2021</span>
 
-                                        <a href="index.html">Reshop</a>
+                                        <a href="{{Route('home')}}">BoukiShop</a>
 
                                         <span>All Right Reserved</span>
                                     </div>

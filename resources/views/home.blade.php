@@ -154,7 +154,7 @@
                                          <li>
                                              <a
                                                  data-modal="modal"
-                                                 data-modal-id="#quick-look"
+                                                 data-modal-id="#quick-look{{$product->id}}"
                                                  data-tooltip="tooltip"
                                                  data-placement="top"
                                                  title="Quick View"
@@ -192,7 +192,9 @@
                                  class="product-o__category"
                              >
                                  <a
-                                     href="shop-side-version-2.html"
+                                 href="{{Route('items_cats',
+                                 ['id_cat' =>$cat->id
+                                 ])}}"
                                      >{{ $product->Category->name}}</a
                                  ></span
                              >
@@ -228,18 +230,18 @@
 
                              <span
                                  class="product-o__price"
-                                 >${{ $product->price }}.00
+                                 >{{ getPrice($product->price) }}
 
                                  <span
                                      class="product-o__discount"
-                                     >$160.00</span
+                                     >{{getPrice($product->last_price)}}</span
                                  ></span
                              >
                          </div>
-                     </div>
-                     
-            <!--====== Quick Look Modal ======-->
-            <div class="modal fade" id="quick-look">
+                         </div>
+                      
+            <!--====== Quick Look Modal cats ======-->
+            <div class="modal fade quick-look" id="quick-look{{$product->id}}">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content modal--shadow">
                         <button
@@ -305,11 +307,11 @@
                                         <div>
                                             <div class="pd-detail__inline">
                                                 <span class="pd-detail__price"
-                                                    >${{$product->price}}</span
+                                                    >{{getPrice($product->price)}}</span
                                                 >
 
                                                <del class="pd-detail__del"
-                                                    >$28.97</del
+                                                    >{{getPrice($product->last_price)}}</del
                                                 >
                                             </div>
                                         </div>
@@ -329,13 +331,8 @@
                                         </div>
                                         <div class="u-s-m-b-15">
                                             <div class="pd-detail__inline">
-                                                <span class="pd-detail__stock"
-                                                    >200 in stock</span
-                                                >
+                                                {{checkquantity($product->quantity)}}
 
-                                                <span class="pd-detail__left"
-                                                    >Only 2 left</span
-                                                >
                                             </div>
                                         </div>
                                         <div class="u-s-m-b-15">
@@ -506,7 +503,7 @@
                                 <div class="product-o__wrap">
                                     <a
                                         class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="product-detail.html"
+                                        href="{{Route('product', $product->id)}}"
                                     >
                                         <img
                                             class="aspect__img"
@@ -519,18 +516,7 @@
                                         <ul
                                             class="product-o__action-list"
                                         >
-                                            <li>
-                                                <a
-                                                    data-modal="modal"
-                                                    data-modal-id="#quick-look"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top"
-                                                    title="Quick View"
-                                                    ><i
-                                                        class="fas fa-search-plus"
-                                                    ></i
-                                                ></a>
-                                            </li>
+                                            
                                             <li>
                                                 <form action="{{Route('cart-store')}}" method="POST">
                                                     @csrf
@@ -556,7 +542,9 @@
 
                                 <span class="product-o__category">
                                     <a
-                                        href="shop-side-version-2.html"
+                                    href="{{Route('items_cats',
+                                    ['id_cat' =>$cat->id
+                                    ])}}"
                                         >{{$item->Category->name}}</a
                                     ></span
                                 >
@@ -579,15 +567,17 @@
                                 </div>
 
                                 <span class="product-o__price"
-                                    >${{$item->price}}
+                                    >{{getPrice($item->price)}}
 
                                     <span
                                         class="product-o__discount"
-                                        >$160.00</span
+                                        >{{getPrice($item->last_price)}}</span
                                     ></span
                                 >
                             </div>
+                                                      
                         </div>
+
                         @endforeach
                            
                          
@@ -635,7 +625,7 @@
                                 <div class="product-o__wrap">
                                     <a
                                         class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="product-detail.html"
+                                        href="{{Route('product', $offer->id)}}"
                                     >
                                         <img
                                             class="aspect__img"
@@ -649,7 +639,7 @@
                                             <li>
                                                 <a
                                                     data-modal="modal"
-                                                    data-modal-id="#quick-look"
+                                                    data-modal-id="#quick-look{{$offer->id}}"
                                                     data-tooltip="tooltip"
                                                     data-placement="top"
                                                     title="Quick View"
@@ -683,7 +673,9 @@
                                 </div>
 
                                 <span class="product-o__category">
-                                    <a href="shop-side-version-2.html"
+                                    <a  href="{{Route('items_cats',
+                                    ['id_cat' =>$cat->id
+                                    ])}}"
                                         >{{$offer->Category->name}}</a
                                     ></span
                                 >
@@ -708,14 +700,213 @@
                                 </div>
 
                                 <span class="product-o__price"
-                                    >${{$offer->price}}
+                                    >{{getPrice($offer->price)}}
 
                                     <span class="product-o__discount"
-                                        >$160.00</span
+                                        >{{getPrice($offer->last_price)}}</span
                                     ></span
                                 >
                             </div>
                         </div>
+                          <!--====== Quick Look Modal cats ======-->
+            <div class="modal fade quick-look" id="quick-look{{$offer->id}}">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal--shadow">
+                        <button
+                            class="btn dismiss-button fas fa-times"
+                            type="button"
+                            data-dismiss="modal"
+                        ></button>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <!--====== Product Breadcrumb ======-->
+                                    <div class="pd-breadcrumb u-s-m-b-30">
+                                        <ul class="pd-breadcrumb__list">
+                                            <li class="has-separator">
+                                                <a href="{{Route('home')}}">Home</a>
+                                            </li>                                      
+                                            <li class="is-marked">
+                                                <a
+                                                href="{{Route('items_cats',
+                                                ['id_cat' =>$cat->id
+                                                ])}}"
+                                                    >{{$offer->Category->name}}</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--====== End - Product Breadcrumb ======-->
+
+                                    <!--====== Product Detail ======-->
+                                    <div class="pd u-s-m-b-30" style="margin-bottom: 0 !important;height: 80%;">
+                                        <div class="pd-wrap" style="height: 100%">
+                                            <div id="js-product-detail-modal" style="height: 100%">
+                                                <div  style="height: 100%">
+                                                    <img
+                                                    style="height: 100%"
+                                                        class="u-img-fluid"
+                                                        src="{{$offer->image}}"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="u-s-m-t-15">
+                                            <div
+                                                id="js-product-detail-modal-thumbnail"
+                                            >
+                                               
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--====== End - Product Detail ======-->
+                                </div>
+                                <div class="col-lg-7">
+                                    <!--====== Product Right Side Details ======-->
+                                    <div class="pd-detail">
+                                        <div>
+                                            <span class="pd-detail__name"
+                                                >{{$offer->title}}</span
+                                            >
+                                        </div>
+                                        <div>
+                                            <div class="pd-detail__inline">
+                                                <span class="pd-detail__price"
+                                                    >{{getPrice($offer->price)}}</span
+                                                >
+
+                                               <del class="pd-detail__del"
+                                                    >{{getPrice($offer->last_price)}}</del
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="u-s-m-b-15">
+                                            <div
+                                                class="pd-detail__rating gl-rating-style"
+                                            >
+                                                <i class="fas fa-star"></i
+                                                ><i class="fas fa-star"></i
+                                                ><i class="fas fa-star"></i
+                                                ><i class="fas fa-star"></i
+                                                ><i
+                                                    class="fas fa-star-half-alt"
+                                                ></i>
+
+                                            </div>
+                                        </div>
+                                        <div class="u-s-m-b-15">
+                                            <div class="pd-detail__inline">
+                                                {{checkquantity($offer->quantity)}}
+
+                                            </div>
+                                        </div>
+                                        <div class="u-s-m-b-15">
+                                            <span
+                                                class="pd-detail__preview-desc"
+                                                >{{$offer->description}}</span
+                                            >
+                                        </div>
+                                       
+
+                                        <div class="u-s-m-b-15">
+                                            <form class="pd-detail__form" action="{{Route('cart-store')}}" method="POST">
+                                                
+                                                    @csrf
+                                                <div class="pd-detail-inline-2">
+                                                    <div class="u-s-m-b-15">
+                                                        <!--====== Input Counter ======-->
+                                                        <div
+                                                            class="input-counter"
+                                                        >
+                                                            <span
+                                                                class="input-counter__minus fas fa-minus"
+                                                            ></span>
+
+                                                            <input
+                                                                class="input-counter__text input-counter--text-primary-style"
+                                                                type="text"
+                                                                value="1"
+                                                                data-min="1"
+                                                                data-max="1000"
+                                                                name="qntty"
+                                                            />
+
+                                                            <span
+                                                                class="input-counter__plus fas fa-plus"
+                                                            ></span>
+                                                        </div>
+                                                        <!--====== End - Input Counter ======-->
+                                                    </div>
+                                                    <div class="u-s-m-b-15">
+                                                        
+                                                            <input type="hidden" name="id" value="{{$offer->id}}">
+                                                         <a
+                                                         data-modal="modal"
+                                                         data-tooltip="tooltip"
+                                                         data-placement="top"
+                                                         title="Add to Cart"
+                                                         class="btn btn--e-brand-b-2"
+                                                         onclick="$(this).closest('form').submit();"
+
+                                                         >
+                                                         Add to Cart
+                                                        </a>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="u-s-m-b-15">
+                                            <span
+                                                class="pd-detail__label u-s-m-b-8"
+                                                >Product Policy:</span
+                                            >
+                                            <ul class="pd-detail__policy-list">
+                                                <li>
+                                                    <i
+                                                        class="fas fa-check-circle u-s-m-r-8"
+                                                    ></i>
+
+                                                    <span
+                                                        >Buyer Protection.</span
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <i
+                                                        class="fas fa-check-circle u-s-m-r-8"
+                                                    ></i>
+
+                                                    <span
+                                                        >Full Refund if you
+                                                        don't receive your
+                                                        order.</span
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <i
+                                                        class="fas fa-check-circle u-s-m-r-8"
+                                                    ></i>
+
+                                                    <span
+                                                        >Returns accepted if
+                                                        product not as
+                                                        described.</span
+                                                    >
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--====== End - Product Right Side Details ======-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Quick Look Modal ======-->
                         @endforeach
                        
        

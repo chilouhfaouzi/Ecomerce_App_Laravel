@@ -72,3 +72,8 @@
     padding-bottom: 15px;
     color: #fff;
 }
+
+.btn--e-brand-b-2,
+.btn--e-brand {
+    color: #fff !important;
+}

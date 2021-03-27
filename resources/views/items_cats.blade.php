@@ -70,9 +70,7 @@
                                             </select></div>
                                         <div class="u-s-m-b-8"><select class="select-box select-box--transparent-b-2">
                                                 <option selected>Sort By: Newest Items</option>
-                                                <option>Sort By: Latest Items</option>
-                                                <option>Sort By: Best Selling</option>
-                                                <option>Sort By: Best Rating</option>
+                                                <option>Sort By: Latest Items</option>                                              
                                                 <option>Sort By: Lowest Price</option>
                                                 <option>Sort By: Highest Price</option>
                                             </select></div>
@@ -93,7 +91,7 @@
                                                 <img class="aspect__img" src="{{$product->image}}" alt=""></a>
                                             <div class="product-m__quick-look">
 
-                                                <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a></div>
+                                                <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look{{$product->id}}" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a></div>
                                             <div class="product-m__add-cart">
                                                 <form action="{{Route('cart-store')}}" method="POST">
                                                     @csrf
@@ -116,7 +114,9 @@
                                         <div class="product-m__content">
                                             <div class="product-m__category">
 
-                                                <a href="shop-side-version-2.html">{{$product->Category->name}}</a></div>
+                                                <a   href="{{Route('items_cats',
+                                    ['id_cat' =>$product->Category->id
+                                    ])}}">{{$product->Category->name}}</a></div>
                                             <div class="product-m__name">
                                                 
                                                 <a href="{{Route('product', $product->id)}}"
@@ -124,7 +124,7 @@
                                             <div class="product-m__rating gl-rating-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
 
                                                 </div>
-                                            <div class="product-m__price">${{$product->price}}.00</div>
+                                            <div class="product-m__price">{{getPrice($product->price)}}</div>
                                             <div class="product-m__hover">
                                                 <div class="product-m__preview-description">
 
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                    <!--====== Quick Look Modal ======-->
-            <div class="modal fade" id="quick-look">
+            <div class="modal fade" id="quick-look{{$product->id}}">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content modal--shadow">
                         <button
@@ -260,7 +260,7 @@
                                         <div>
                                             <div class="pd-detail__inline">
                                                 <span class="pd-detail__price"
-                                                    >${{$product->price}}</span
+                                                    >{{getPrice($product->price)}}</span
                                                 >
 
                                                <del class="pd-detail__del"
@@ -400,23 +400,9 @@
                         <div class="u-s-p-y-60">
 
                             <!--====== Pagination ======-->
-                            <ul class="shop-p__pagination">
-                                <li class="is-active">
 
-                                    <a href="shop-grid-full.html">1</a></li>
-                                <li>
-
-                                    <a href="shop-grid-full.html">2</a></li>
-                                <li>
-
-                                    <a href="shop-grid-full.html">3</a></li>
-                                <li>
-
-                                    <a href="shop-grid-full.html">4</a></li>
-                                <li>
-
-                                    <a class="fas fa-angle-right" href="shop-grid-full.html"></a></li>
-                            </ul>
+                            {{ $products->links() }}
+                        
                             <!--====== End - Pagination ======-->
                         </div>
                     </div>
