@@ -18,7 +18,7 @@
                                 <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
                                     <div class="dash__pad-1">
 
-                                        <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                        <span class="dash__text u-s-m-b-16">Hello, <?php echo e(Auth::user()->name); ?></span>
                                         <ul class="dash__f-list">
                                             <li>
 
@@ -59,6 +59,7 @@
                                 </div>
                                 <!--====== End - Dashboard Features ======-->
                             </div>
+                            <?php if($orders->count() > 0): ?>
                             <div class="col-lg-9 col-md-12">
                                 <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
                                     <div class="dash__pad-2">
@@ -132,6 +133,35 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <?php endif; ?>
+                          <?php if($orders->count() == 0): ?>
+                          <div class="col-lg-9 col-md-12 mt-5 pt-3 ">
+
+                            <!--====== Section Content ======-->
+                            <div class="section__content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 u-s-m-b-30">
+                                            <div class="empty">
+                                                <div class="empty__wrap">
+            
+                                                    <span class="empty__big-text">EMPTY</span>
+            
+                                                    <span class="empty__text-1">You do not have any orders to display in this view.</span>
+            
+                                                    <a class="empty__redirect-link btn--e-brand" href="<?php echo e(Route('home')); ?>">CONTINUE SHOPPING</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--====== End - Section Content ======-->
+                        </div>
+                          <?php endif; ?>
+
+                          
+
                         </div>
                     </div>
                 </div>

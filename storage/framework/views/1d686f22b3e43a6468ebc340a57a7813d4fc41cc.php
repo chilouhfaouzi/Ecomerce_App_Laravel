@@ -95,7 +95,7 @@
                                 <div class="contact-area__heading">
                                     <h2>Get In Touch</h2>
                                 </div>
-                                <form class="contact-f" method="post" action="index.html">
+                                <form class="contact-f" method="post" action="<?php echo e(Route('home')); ?>">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 u-h-100">
                                             <div class="u-s-m-b-30">

@@ -68,6 +68,12 @@
                                     id="main-search"
                                     name="search"
                                     placeholder="Search"
+                                   
+                                    @isset(request()->search)
+                                    value="{{request()->search}}"                                      
+                                    @endisset
+
+
                                 />
 
                                 <button
@@ -262,9 +268,7 @@
                                                         >Checkout</a
                                                     >
                                                 </li>
-                                                <li>
-                                                    <a href="{{Route('faq')}}">FAQ</a>
-                                                </li>
+                                               
                                                 <li>
                                                     <a href="{{Route('about')}}"
                                                         >About us</a
@@ -274,7 +278,10 @@
                                                     <a href="{{Route('contact')}}"
                                                         >Contact</a
                                                     >
-                                                </li>                                          
+                                                </li>     
+                                                <li>
+                                                    <a href="{{Route('faq')}}">FAQ</a>
+                                                </li>                                     
                                             </ul>
                                             <!--====== End - Dropdown ======-->
                                         </li>                                    
@@ -375,7 +382,7 @@
 
             <!-- Start Payment success -->
             @if (Session::has('success'))
-            <div class="alert alert-primary text-center">
+            <div class="alert alert-success text-center">
                 <p>{{ Session::get('success') }}</p>
             </div>
             @endif
@@ -636,10 +643,12 @@
             ga("send", "pageview");
         </script>
         <script
-            src="https://www.google-analytics.com/analytics.js') }}"
+            src="https://www.google-analytics.com/analytics.js"
             async
             defer
         ></script>
+       
+        @yield('special_script')
 
         <!--====== Vendor Js ======-->
         <script src="{{ asset('js/vendor.js') }}"></script>

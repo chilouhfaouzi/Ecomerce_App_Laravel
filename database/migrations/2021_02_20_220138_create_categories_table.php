@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name', 50)->unique();
             $table->integer('number_products');
-            $table->string('image', 50)->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

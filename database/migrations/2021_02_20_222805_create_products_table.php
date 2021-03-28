@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('title', 100)->unique();
             $table->text("description");
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->string('image', 50);
+            $table->text('image');
             $table->integer('price');
             $table->integer('last_price');
             $table->integer('solds');

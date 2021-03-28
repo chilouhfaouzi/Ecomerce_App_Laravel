@@ -68,6 +68,12 @@
                                     id="main-search"
                                     name="search"
                                     placeholder="Search"
+                                   
+                                    <?php if(isset(request()->search)): ?>
+                                    value="<?php echo e(request()->search); ?>"                                      
+                                    <?php endif; ?>
+
+
                                 />
 
                                 <button
@@ -263,9 +269,7 @@
                                                         >Checkout</a
                                                     >
                                                 </li>
-                                                <li>
-                                                    <a href="<?php echo e(Route('faq')); ?>">FAQ</a>
-                                                </li>
+                                               
                                                 <li>
                                                     <a href="<?php echo e(Route('about')); ?>"
                                                         >About us</a
@@ -275,7 +279,10 @@
                                                     <a href="<?php echo e(Route('contact')); ?>"
                                                         >Contact</a
                                                     >
-                                                </li>                                          
+                                                </li>     
+                                                <li>
+                                                    <a href="<?php echo e(Route('faq')); ?>">FAQ</a>
+                                                </li>                                     
                                             </ul>
                                             <!--====== End - Dropdown ======-->
                                         </li>                                    
@@ -376,7 +383,7 @@
 
             <!-- Start Payment success -->
             <?php if(Session::has('success')): ?>
-            <div class="alert alert-primary text-center">
+            <div class="alert alert-success text-center">
                 <p><?php echo e(Session::get('success')); ?></p>
             </div>
             <?php endif; ?>
@@ -637,10 +644,12 @@
             ga("send", "pageview");
         </script>
         <script
-            src="https://www.google-analytics.com/analytics.js') }}"
+            src="https://www.google-analytics.com/analytics.js"
             async
             defer
         ></script>
+       
+        <?php echo $__env->yieldContent('special_script'); ?>
 
         <!--====== Vendor Js ======-->
         <script src="<?php echo e(asset('js/vendor.js')); ?>"></script>

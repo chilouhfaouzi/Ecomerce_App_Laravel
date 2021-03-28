@@ -52,7 +52,7 @@
                     <div class="col-lg-7">
 
                         <!--====== Product Right Side Details ======-->
-                        <div class="pd-detail">
+                        <div class="pd-detail pt-5">
                             <div>
 
                                 <span class="pd-detail__name"><?php echo e($product->title); ?></span></div>
