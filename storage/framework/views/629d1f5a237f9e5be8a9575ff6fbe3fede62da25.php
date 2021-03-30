@@ -11,7 +11,7 @@
         />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <link href="images/favicon.png" rel="shortcut icon" />
+        <link href="https://img.icons8.com/cute-clipart/64/000000/shop.png" rel="shortcut icon" />
         <title>
             Bouki Store
         </title>
