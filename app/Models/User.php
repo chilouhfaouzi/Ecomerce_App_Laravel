@@ -21,11 +21,14 @@ class User extends Authenticatable
         'email',
         'tel',
         'password',
+        'tel',
+        'is_admin',
+        'is_suspended',
         'lines',
         'zip_code',
         'city',
         'country',
-
+        "quantity",
     ];
 
     /**

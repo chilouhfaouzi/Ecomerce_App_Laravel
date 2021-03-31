@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CartController;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\CategoryProductController;
 
 /*
@@ -21,6 +21,41 @@ use App\Http\Controllers\CategoryProductController;
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register  admin's routes
+|
+*/
+
+
+Route::match(['get','post'],'/admin/login',[App\Http\Controllers\admin\AdminController::class, 'login'])->name('admin.login');
+Route::middleware(['admin'])->group(function () {
+
+    Route::get('/admin/logout',[App\Http\Controllers\admin\AdminController::class,'logout'])->name('admin.logout');
+    Route::get('/admin',[App\Http\Controllers\admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/categories',[App\Http\Controllers\admin\AdminController::class, 'showCategories'])->name('admin.categories');
+    // Route::get('/admin/add-edit-categorie/{id?}',[App\Http\Controllers\admin\AdminController::class, 'addEditCategorie'])->name('addEditadmin.categories');
+    Route::resource('admin/categorie', App\Http\Controllers\admin\CategoryController::class)->except('show');
+    Route::resource('admin/products', App\Http\Controllers\admin\ProductController::class)->except("show");
+    Route::resource('admin/users', App\Http\Controllers\admin\UserController::class)->except("show");
+    Route::resource('admin/orders', App\Http\Controllers\admin\OrderController::class);
+    Route::put('/admin/orders/{id}',[App\Http\Controllers\admin\AdminController::class,'delevered'])->name('admin.orders.delevered');
+
+
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| front end Routes
+|--------------------------------------------------------------------------
+|
+| 
+|
+*/
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/home', [ProductController::class, 'index'])->name('home');

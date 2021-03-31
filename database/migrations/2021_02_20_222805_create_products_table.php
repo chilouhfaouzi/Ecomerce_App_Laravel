@@ -19,11 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('title', 100)->unique();
             $table->text("description");
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->text('image');
+            $table->string('image', 250);
             $table->integer('price');
             $table->integer('last_price');
             $table->integer('solds');
-            $table->integer('quantity')->default(10);
+            $table->integer('quantity')->nullable();
             $table->smallInteger('best_offers');
             $table->timestamps();
         });

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer("zip_code")->unique()->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
+            $table->string('avatar')->default("avatar5.png");
             $table->rememberToken();
             $table->timestamps();
         });

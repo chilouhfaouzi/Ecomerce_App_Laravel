@@ -49,10 +49,14 @@ class ProductFactory extends Factory
             // 'image' => "https://loremflickr.com/640/360",
             'image' => $my_faker->randomElement($array =  $products),
             'price' => $price,
+<<<<<<< HEAD
+=======
             'last_price' =>  $last_price,
+>>>>>>> 26ed73d867fa646e41b3a8e19a07783fc61689ff
             'solds' => $my_faker->numberBetween($min = 0, $max = 15),
             'quantity' => $my_faker->numberBetween($min = 3, $max = 30),
             'best_offers' => $my_faker->randomElement($array = array('0', '1'))
         ];
+    
     }
 }

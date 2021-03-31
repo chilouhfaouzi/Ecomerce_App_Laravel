@@ -1,3 +1,0 @@
-1-awal haja bdlt extension dial .env.example to .env
-2-sir lprojet f localhost
-3-generate lkey 
